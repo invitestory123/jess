@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Jessica & Dwij — Royal Wedding Invitation | May 7 & 8, 2027</title>
+  
+  <!-- Primary SEO Meta Tags -->
+  <meta name="title" content="Jessica & Dwij — Royal Wedding Invitation | May 7 & 8, 2027">
+  <meta name="description" content="Together with their families, Jessica & Dwij invite you to celebrate their wedding on May 7 & 8, 2027 at The Grand Emerald Palace & Royal Pavilions, Udaipur. Experience the cinematic invitation with interactive date reveal, event chapters, countdown and venue details.">
+  <meta name="keywords" content="Jessica and Dwij, Jessica Dwij wedding, royal wedding invitation, digital wedding invitation, Udaipur wedding, luxury wedding invite">
+  <meta name="author" content="Jessica & Dwij">
+  <meta name="theme-color" content="#0a0a0f">
+
+  <!-- Open Graph / Facebook / WhatsApp / iMessage -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://invitestory123.github.io/jess/">
+  <meta property="og:site_name" content="Jessica & Dwij Wedding">
+  <meta property="og:title" content="Jessica & Dwij — Royal Wedding Invitation | May 7 & 8, 2027">
+  <meta property="og:description" content="Together with their families, Jessica & Dwij invite you to celebrate their wedding on May 7 & 8, 2027 at The Grand Emerald Palace & Royal Pavilions, Udaipur. Experience the cinematic invitation with interactive date reveal, event chapters, countdown and venue details.">
+  <meta property="og:image" content="./og-image.png">
+  <meta property="og:image:secure_url" content="./og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Jessica & Dwij — Royal Wedding Invitation Preview">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://invitestory123.github.io/jess/">
+  <meta name="twitter:title" content="Jessica & Dwij — Royal Wedding Invitation | May 7 & 8, 2027">
+  <meta name="twitter:description" content="Together with their families, Jessica & Dwij invite you to celebrate their wedding on May 7 & 8, 2027 at The Grand Emerald Palace & Royal Pavilions, Udaipur. Experience the cinematic invitation with interactive date reveal, event chapters, countdown and venue details.">
+  <meta name="twitter:image" content="./og-image.png">
+  <meta name="twitter:image:alt" content="Jessica & Dwij — Royal Wedding Invitation Preview">
+
+  <!-- Google Fonts: Great Vibes, Cormorant Garamond, Cinzel, Montserrat, Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Great+Vibes&family=Jost:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Critical Asset Preloading for Instant Render -->
+  <link rel="preload" href="./assets/doors/1.avif" as="image" type="image/avif" fetchpriority="high">
+  <link rel="preload" href="./assets/doors/1.mp4" as="video" type="video/mp4">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <!-- Ambient Desktop Background -->
+  <div class="ambient-backdrop" id="ambientBackdrop"></div>
+
+  <!-- Background YouTube Music Player Container -->
+  <div id="youtubePlayerContainer" class="youtube-player-container"></div>
+
+  <!-- Top Floating Controls -->
+  <header class="top-controls">
+    <div class="brand-tag">
+      <span class="sparkle">✦</span> Jessica & Dwij
+    </div>
+    <div class="action-pills">
+      <button id="audioToggleBtn" class="glass-pill-btn icon-only" title="Toggle Sound">
+        <svg id="audioIconOn" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <svg id="audioIconOff" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+      <button id="replayHeaderBtn" class="glass-pill-btn" title="Replay Opening">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        <span>Replay</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main 9:16 Vertical Invitation Container -->
+  <main class="invitation-wrapper">
+    <div class="invitation-card-container" id="invitationContainer">
+      
+      <!-- 1. Media Stage: Emerald Arch with Bougainvillea + Lanterns -->
+      <div class="media-stage" id="mediaStage">
+        <!-- High-res Static Poster Image (Emerald Arch with Bougainvillea) -->
+        <img id="doorPoster" src="./assets/doors/1.avif" alt="Emerald Arch with Bougainvillea" class="door-media poster-image active" fetchpriority="high" decoding="async">
+        
+        <!-- Video Layer for physical opening animation -->
+        <video id="doorVideo" class="door-media video-player" playsinline webkit-playsinline preload="auto" muted>
+          <source id="videoSource" src="./assets/doors/1.mp4" type="video/mp4">
+        </video>
+        
+        <!-- Freeze Frame Canvas for 100% static hold at video completion -->
+        <canvas id="staticFrameCanvas" class="door-media static-canvas"></canvas>
+
+        <!-- Ambient Dust / Light Particle Overlay -->
+        <div class="light-dust-particles" id="dustParticles"></div>
+
+        <!-- 3D Depth Floating Sky Lanterns Overlay -->
+        <div class="floating-lanterns-container" id="lanternsContainer"></div>
+
+        <!-- Tap-To-Open Callout -->
+        <div class="tap-to-open-overlay" id="tapOverlay">
+          <div class="keyhole-pulse">
+            <div class="ring-pulse"></div>
+            <div class="keyhole-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="10" r="3"/><path d="M12 13v5M9.5 21h5"/></svg>
+            </div>
+          </div>
+          <span class="tap-text">TAP TO OPEN</span>
+          <span class="sub-tap-text">An Auspicious Invitation Awaits</span>
+        </div>
+      </div>
+
+      <!-- Wedding Content Overlay (Reveals AFTER emerald door opens) -->
+      <div class="invitation-overlay hidden" id="invitationOverlay">
+        
+        <!-- Celebration Confetti Particle Layer -->
+        <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+        <div class="content-scrollable" id="contentScrollable">
+          
+          <!-- 2. Om Ganeshaya Namah with Ganesh Icon & Names (Jessica & Dwij) -->
+          <div class="rajmahal-hero-block animate-element" style="--delay: 0.1s;">
+            <!-- Auspicious Lord Ganesha with glowing golden aura -->
+            <div class="ganesha-emblem-wrap">
+              <div class="ganesha-halo-glow"></div>
+              <img src="./assets/ganesha.png" alt="Lord Ganesha" class="ganesha-img" />
+            </div>
+
+            <!-- Om Ganeshaya Namah Sacred Invocations -->
+            <div class="sacred-invocation-block">
+              <p class="sanskrit-verse">॥ श्री गणेशाय नमः ॥</p>
+              <p class="english-invocation">|| OM GANESHAYA NAMAH ||</p>
+              <div class="header-divider">
+                <span class="line"></span>
+                <span class="om-symbol">ॐ</span>
+                <span class="line"></span>
+              </div>
+            </div>
+
+            <!-- Greeting Text -->
+            <p class="greeting-text">
+              TOGETHER WITH THEIR FAMILIES, REQUEST THE HONOUR OF YOUR PRESENCE TO CELEBRATE THE SACRED UNION OF
+            </p>
+
+            <!-- Jessica & Dwij Couple Names (Royal Rajmahal Script & Gold Gradient) -->
+            <div class="couple-names-block">
+              <h1 class="couple-name bride-name">Jessica</h1>
+              <div class="names-separator">
+                <div class="hairline-gold"></div>
+                <span class="ornate-ampersand">&amp;</span>
+                <div class="hairline-gold"></div>
+              </div>
+              <h1 class="couple-name groom-name">Dwij</h1>
+            </div>
+
+            <!-- Subtle Ornamental Divider -->
+            <div class="royal-ornament-wrap">
+              <img src="./assets/divider.png" alt="" class="royal-divider-img" />
+            </div>
+          </div>
+
+          <!-- 3. Scratch to Reveal Wedding Date (May 7 & 8, 2027) -->
+          <div class="scratch-card-wrapper animate-element" style="--delay: 0.3s;">
+            <div class="scratch-card-container" id="scratchContainer">
+              <!-- Underneath Date Card (Revealed upon scratching) -->
+              <div class="date-time-card" id="dateTimeCard">
+                <div class="date-header-badge">SAVE THE DATES</div>
+                <div class="date-days-label">FRIDAY &amp; SATURDAY</div>
+                <div class="date-main-display">
+                  <span class="date-month-title">MAY</span>
+                  <span class="date-large-num">7 &amp; 8</span>
+                  <span class="date-year-title">2027</span>
+                </div>
+                <div class="date-ceremony-note">MAY 7 &amp; 8, 2027 • SACRED MUHURAT &amp; CELEBRATION</div>
+              </div>
+              
+              <!-- Gold Metallic Scratch Foil Canvas -->
+              <canvas id="scratchCanvas" class="scratch-canvas"></canvas>
+              
+              <!-- Scratch Hint Badge -->
+              <div class="scratch-hint-badge" id="scratchHint">
+                <span class="sparkle-icon">✨</span>
+                <span>Scratch foil to reveal wedding dates</span>
+              </div>
+            </div>
+
+            <button id="quickRevealBtn" class="quick-reveal-btn">
+              <span>Quick Reveal Dates ✨</span>
+            </button>
+          </div>
+
+          <!-- 4. Choose a Chapter section from GILDED template (Carousel of 4 events with custom animations) -->
+          <section class="chapters-editorial-section animate-element" style="--delay: 0.45s;" aria-labelledby="chapterHeading">
+            <div class="chapter-header-wrap">
+              <p class="section-kicker">FOUR CHAPTERS • ONE UNFORGETTABLE CELEBRATION</p>
+              <h2 id="chapterHeading" class="chapter-main-title">Choose a Chapter</h2>
+              <p class="chapter-intro-desc">Move through each auspicious celebration, from sunlit Capri citrus gardens to sparkling royal chandeliers.</p>
+            </div>
+
+            <!-- Carousel Chapter Tabs Selector (Gilded editorial style) -->
+            <div class="chapter-selector-tabs" role="tablist">
+              <button class="chapter-tab-btn active" data-index="0" role="tab" aria-selected="true">
+                <span class="tab-num">01</span>
+                <span class="tab-title">MANGLIK PRASANGO</span>
+              </button>
+              <button class="chapter-tab-btn" data-index="1" role="tab" aria-selected="false">
+                <span class="tab-num">02</span>
+                <span class="tab-title">SANGEET</span>
+              </button>
+              <button class="chapter-tab-btn" data-index="2" role="tab" aria-selected="false">
+                <span class="tab-num">03</span>
+                <span class="tab-title">WEDDING</span>
+              </button>
+              <button class="chapter-tab-btn" data-index="3" role="tab" aria-selected="false">
+                <span class="tab-num">04</span>
+                <span class="tab-title">RECEPTION</span>
+              </button>
+            </div>
+
+            <!-- Chapter Carousel Visual Stage -->
+            <div class="chapter-carousel-stage" id="chapterStage">
+              
+              <!-- Chapter 1: Manglik Prasango - Capri style (lemons & pastel blue designs) -->
+              <div class="chapter-card active" id="chapter-0" data-chapter="0">
+                <div class="capri-decorations" aria-hidden="true">
+                  <!-- Capri Majolica Ceramic Tile Borders -->
+                  <div class="capri-tile-border-top"></div>
+                  <div class="capri-tile-border-bottom"></div>
+                  <!-- Swaying Lemons and Leafy Citrus Sprig Illustration -->
+                  <div class="capri-lemon-branch top-right">
+                    <svg viewBox="0 0 140 120" class="lemon-svg" fill="none">
+                      <!-- Branch stems -->
+                      <path d="M130 5 C100 25, 70 30, 30 65" stroke="#4a5c2d" stroke-width="4" stroke-linecap="round"/>
+                      <path d="M75 30 C55 20, 35 15, 10 25" stroke="#4a5c2d" stroke-width="3" stroke-linecap="round"/>
+                      <!-- Leaves -->
+                      <path d="M85 28 C95 10, 120 12, 115 30 C100 35, 90 32, 85 28 Z" fill="#587a38" stroke="#364e22" stroke-width="1.5"/>
+                      <path d="M45 45 C30 35, 20 50, 35 60 C45 62, 50 50, 45 45 Z" fill="#6f9947" stroke="#364e22" stroke-width="1.5"/>
+                      <path d="M25 18 C15 5, 35 0, 40 12 C40 22, 30 22, 25 18 Z" fill="#587a38" stroke="#364e22" stroke-width="1.5"/>
+                      <!-- Lemon 1 -->
+                      <g class="lemon-fruit lemon-1">
+                        <ellipse cx="65" cy="72" rx="28" ry="36" transform="rotate(-25 65 72)" fill="#ffd53d" stroke="#e0a912" stroke-width="2"/>
+                        <path d="M45 50 Q65 70 50 95" stroke="#ffe785" stroke-width="2.5" fill="none" opacity="0.8"/>
+                        <!-- Lemon tip -->
+                        <path d="M41 45 C38 41, 37 40, 35 43 C37 46, 39 48, 41 45 Z" fill="#ffd53d"/>
+                      </g>
+                      <!-- Lemon 2 (small) -->
+                      <g class="lemon-fruit lemon-2">
+                        <ellipse cx="105" cy="55" rx="20" ry="26" transform="rotate(20 105 55)" fill="#ffdf59" stroke="#e0a912" stroke-width="2"/>
+                        <path d="M100 38 Q115 52 108 72" stroke="#fff19c" stroke-width="2" fill="none" opacity="0.8"/>
+                      </g>
+                      <!-- Lemon blossom flowers -->
+                      <g class="blossom blossom-1">
+                        <circle cx="75" cy="30" r="4" fill="#f8b800"/>
+                        <circle cx="75" cy="24" r="5" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.8"/>
+                        <circle cx="81" cy="28" r="5" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.8"/>
+                        <circle cx="78" cy="35" r="5" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.8"/>
+                        <circle cx="70" cy="34" r="5" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.8"/>
+                        <circle cx="69" cy="27" r="5" fill="#ffffff" stroke="#e0e8f0" stroke-width="0.8"/>
+                      </g>
+                    </svg>
+                  </div>
+                  <!-- Floating Capri Blossom Petals -->
+                  <div class="capri-drifting-petals">
+                    <span class="blossom-flake f1"></span>
+                    <span class="blossom-flake f2"></span>
+                    <span class="blossom-flake f3"></span>
+                    <span class="blossom-flake f4"></span>
+                  </div>
+                </div>
+
+                <div class="chapter-card-inner">
+                  <div class="chapter-kicker-tag">CAPRI SOIRÉE &amp; BLESSINGS</div>
+                  <h3 class="chapter-event-name">Manglik Prasango</h3>
+                  <div class="chapter-datetime">
+                    <span class="ch-date">FRIDAY, MAY 7, 2027</span>
+                    <span class="ch-dot">•</span>
+                    <span class="ch-time">10:00 AM ONWARDS</span>
+                  </div>
+                  <p class="chapter-note">
+                    A vibrant morning bathed in Capri sunshine, Italian pastel hues, citrus blossoms, and holy haldi paste rituals — celebrating sacred beginnings with song and laughter.
+                  </p>
+                  <div class="chapter-location-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>The Lemon Grove Courtyard &amp; Pavilion</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chapter 2: Sangeet - Moroccan Lanterns fall down the side of the card -->
+              <div class="chapter-card" id="chapter-1" data-chapter="1">
+                <div class="moroccan-decorations" aria-hidden="true">
+                  <!-- Arabesque Moroccan Arch Background Silhouette -->
+                  <div class="moroccan-arch-overlay"></div>
+                  
+                  <!-- Left Moroccan Lanterns falling down side -->
+                  <div class="moroccan-flank-lanterns flank-left">
+                    <div class="lantern-drop lantern-drop-1">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                    <div class="lantern-drop lantern-drop-2">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body medium">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                    <div class="lantern-drop lantern-drop-3">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body small">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Right Moroccan Lanterns falling down side -->
+                  <div class="moroccan-flank-lanterns flank-right">
+                    <div class="lantern-drop lantern-drop-4">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body medium">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                    <div class="lantern-drop lantern-drop-5">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                    <div class="lantern-drop lantern-drop-6">
+                      <div class="lantern-chain"></div>
+                      <div class="moroccan-lantern-body small">
+                        <div class="lantern-flame"></div>
+                        <div class="lantern-glow"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Ambient Moroccan warm ember particles -->
+                  <div class="moroccan-embers">
+                    <span class="ember e1"></span>
+                    <span class="ember e2"></span>
+                    <span class="ember e3"></span>
+                  </div>
+                </div>
+
+                <div class="chapter-card-inner">
+                  <div class="chapter-kicker-tag gold">MOROCCAN NIGHTS &amp; RHYTHMS</div>
+                  <h3 class="chapter-event-name">Sangeet &amp; Celebration</h3>
+                  <div class="chapter-datetime">
+                    <span class="ch-date">FRIDAY, MAY 7, 2027</span>
+                    <span class="ch-dot">•</span>
+                    <span class="ch-time">7:00 PM ONWARDS</span>
+                  </div>
+                  <p class="chapter-note">
+                    An intoxicating evening of soulful melodies, dazzling family performances, rhythmic dholak beats, and celebration amidst amber Moroccan lantern light.
+                  </p>
+                  <div class="chapter-location-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>The Royal Mirage Oasis Ballroom</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chapter 3: Wedding - Flowers decorating the border of the card -->
+              <div class="chapter-card" id="chapter-2" data-chapter="2">
+                <div class="wedding-flowers-decorations" aria-hidden="true">
+                  <!-- Ornate Botanical Flower Garland Borders Framing Card -->
+                  <div class="floral-frame-border top"></div>
+                  <div class="floral-frame-border bottom"></div>
+                  <div class="floral-frame-border left"></div>
+                  <div class="floral-frame-border right"></div>
+
+                  <!-- Corner Floral Bouquets -->
+                  <div class="floral-corner top-left"></div>
+                  <div class="floral-corner top-right"></div>
+                  <div class="floral-corner bottom-left"></div>
+                  <div class="floral-corner bottom-right"></div>
+
+                  <!-- Gentle Floating Rose Petal Rain -->
+                  <div class="floating-rose-petals">
+                    <span class="rose-petal p1"></span>
+                    <span class="rose-petal p2"></span>
+                    <span class="rose-petal p3"></span>
+                    <span class="rose-petal p4"></span>
+                    <span class="rose-petal p5"></span>
+                  </div>
+                </div>
+
+                <div class="chapter-card-inner">
+                  <div class="chapter-kicker-tag crimson">THE SACRED CEREMONY</div>
+                  <h3 class="chapter-event-name">The Royal Vivah</h3>
+                  <div class="chapter-datetime">
+                    <span class="ch-date">SATURDAY, MAY 8, 2027</span>
+                    <span class="ch-dot">•</span>
+                    <span class="ch-time">BARAAT 4:00 PM | MUHURAT 5:00 PM</span>
+                  </div>
+                  <p class="chapter-note">
+                    Framed in sacred flowers and fragrant jasmine, Jessica &amp; Dwij take their sacred Saat Pheras around the holy fire, uniting two souls for a lifetime of love.
+                  </p>
+                  <div class="chapter-location-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>The Grand Emerald Mandap &amp; Palace Lawns</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chapter 4: Reception - Chandeliers from gilded hall -->
+              <div class="chapter-card" id="chapter-3" data-chapter="3">
+                <div class="gilded-hall-decorations" aria-hidden="true">
+                  <!-- Gilded Hall Architectural Vignette (from Gilded template assets) -->
+                  <div class="gilded-arch-backdrop"></div>
+
+                  <!-- Grand Sparkling Crystal Chandeliers hanging from ceiling -->
+                  <div class="chandeliers-row">
+                    <!-- Left Side Chandelier -->
+                    <div class="chandelier-item c-left">
+                      <div class="chandelier-chain"></div>
+                      <div class="chandelier-crown"></div>
+                      <div class="chandelier-arms">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                      </div>
+                      <div class="crystal-pendants"></div>
+                      <div class="chandelier-flare-glow"></div>
+                    </div>
+
+                    <!-- Center Grand Chandelier -->
+                    <div class="chandelier-item c-center">
+                      <div class="chandelier-chain grand"></div>
+                      <div class="chandelier-crown grand"></div>
+                      <div class="chandelier-arms grand">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                        <span class="crystal-bulb b4"></span>
+                        <span class="crystal-bulb b5"></span>
+                      </div>
+                      <div class="crystal-pendants grand"></div>
+                      <div class="chandelier-flare-glow grand"></div>
+                    </div>
+
+                    <!-- Right Side Chandelier -->
+                    <div class="chandelier-item c-right">
+                      <div class="chandelier-chain"></div>
+                      <div class="chandelier-crown"></div>
+                      <div class="chandelier-arms">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                      </div>
+                      <div class="crystal-pendants"></div>
+                      <div class="chandelier-flare-glow"></div>
+                    </div>
+                  </div>
+
+                  <!-- Floating Golden Stardust Glints -->
+                  <div class="golden-stardust">
+                    <span class="stardust s1">✦</span>
+                    <span class="stardust s2">✦</span>
+                    <span class="stardust s3">✧</span>
+                    <span class="stardust s4">✦</span>
+                  </div>
+                </div>
+
+                <div class="chapter-card-inner">
+                  <div class="chapter-kicker-tag gilded">GILDED HALL SOIREE</div>
+                  <h3 class="chapter-event-name">The Grand Reception</h3>
+                  <div class="chapter-datetime">
+                    <span class="ch-date">SATURDAY, MAY 8, 2027</span>
+                    <span class="ch-dot">•</span>
+                    <span class="ch-time">8:00 PM ONWARDS</span>
+                  </div>
+                  <p class="chapter-note">
+                    An opulent banquet beneath the shimmering chandeliers of the gilded hall — champagne toasts, gourmet dining, musical tributes, and the couple's first dance.
+                  </p>
+                  <div class="chapter-location-tag">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span>The Gilded Palace Grand Ballroom</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Carousel Navigation Arrows & Indicators -->
+            <div class="chapter-nav-controls">
+              <button class="nav-arrow-btn" id="prevChapterBtn" aria-label="Previous Chapter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <div class="chapter-dots" id="chapterDots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+                <span class="dot" data-index="3"></span>
+              </div>
+              <button class="nav-arrow-btn" id="nextChapterBtn" aria-label="Next Chapter">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+              </button>
+            </div>
+          </section>
+
+          <!-- 5. Count down to event date -->
+          <div class="countdown-section animate-element" style="--delay: 0.6s;">
+            <div class="countdown-header-tag">COUNTDOWN TO MAY 7, 2027</div>
+            <div class="countdown-grid" id="countdownGrid">
+              <div class="countdown-pill">
+                <span class="countdown-num" id="cdDays">00</span>
+                <span class="countdown-unit">DAYS</span>
+              </div>
+              <div class="countdown-pill">
+                <span class="countdown-num" id="cdHours">00</span>
+                <span class="countdown-unit">HOURS</span>
+              </div>
+              <div class="countdown-pill">
+                <span class="countdown-num" id="cdMins">00</span>
+                <span class="countdown-unit">MINS</span>
+              </div>
+              <div class="countdown-pill">
+                <span class="countdown-num" id="cdSecs">00</span>
+                <span class="countdown-unit">SECS</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Venue Location (Dummy Location and Link) -->
+          <div class="venue-block-card animate-element" style="--delay: 0.7s;">
+            <div class="venue-card-badge">THE WEDDING VENUE</div>
+            <h3 class="venue-name">The Grand Emerald Palace &amp; Royal Pavilions</h3>
+            <p class="venue-location">Lake Pichola Heritage Boulevard, Udaipur, Rajasthan 313001</p>
+            <p class="venue-subtext">Valet parking at North Entrance • 25 minutes from Maharana Pratap Airport</p>
+            
+            <!-- Stylized Map Preview -->
+            <div class="venue-map-wrapper">
+              <iframe
+                title="Venue Location Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14510.985023908992!2d73.67666211244304!3d24.576435017056455!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56550a14411%3A0xdbd8c28455b868b0!2sCity%20Palace%2C%20Udaipur!5e0!3m2!1sen!2sin!4v1714500000000!5m2!1sen!2sin"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                class="venue-iframe-map"
+              ></iframe>
+            </div>
+
+            <div class="venue-actions">
+              <a href="https://maps.google.com/?q=City+Palace+Udaipur+Rajasthan" target="_blank" rel="noopener noreferrer" class="secondary-glass-btn" id="openMapBtn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Open in Google Maps</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 7. RSVP : Hyperlink to Wedding Website (Dummy Link) -->
+          <div class="rsvp-section-card animate-element" style="--delay: 0.8s;">
+            <div class="rsvp-card-inner">
+              <span class="sparkle-rsvp">✦</span>
+              <h3 class="rsvp-title">Kindly RSVP</h3>
+              <p class="rsvp-description">
+                Your gracious presence and blessings are our greatest joy. Kindly respond by April 1, 2027 through our wedding website.
+              </p>
+              
+              <!-- Direct Hyperlink to Wedding Website (Dummy link) -->
+              <a href="https://jessica-and-dwij-wedding.com/rsvp" target="_blank" rel="noopener noreferrer" class="primary-gold-btn rsvp-btn">
+                <span>RSVP on Wedding Website</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+
+              <!-- Add to Calendar option -->
+              <div class="calendar-btn-wrap">
+                <button class="secondary-glass-btn add-cal-btn" id="addToCalendarBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                  <span>Add to Calendar</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Replay Door Opening Footer -->
+          <div class="invitation-footer animate-element" style="--delay: 0.9s;">
+            <button id="replayBtn" class="text-link-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Replay Door Opening Experience</span>
+            </button>
+            <p class="footer-blessing">With Love &amp; Gratitude — Jessica &amp; Dwij</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
