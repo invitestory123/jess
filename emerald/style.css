@@ -1154,23 +1154,29 @@ html, body {
 .chapter-carousel-stage {
   position: relative;
   width: 100%;
-  min-height: 380px;
-  border-radius: 20px;
+  min-height: 520px;
+  border-radius: 22px;
   overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(217, 164, 65, 0.12);
+  border: 1px solid var(--color-rajmahal-border);
 }
 
 .chapter-card {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   opacity: 0;
-  transform: translateX(30px);
+  transform: translateX(36px);
   pointer-events: none;
   transition: opacity 0.5s var(--ease-silk), transform 0.5s var(--ease-silk);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  padding: 24px 20px;
+  justify-content: space-between;
+  padding: 26px 20px 24px;
   text-align: left;
+  overflow: hidden;
+  border-radius: 22px;
 }
 
 .chapter-card.active {
@@ -1178,110 +1184,298 @@ html, body {
   transform: translateX(0);
   pointer-events: auto;
   position: relative;
+  min-height: 520px;
 }
 
 .chapter-card-inner {
   position: relative;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+  justify-content: space-between;
 }
 
-.chapter-kicker-tag {
+/* Header Badge Row */
+.chapter-header-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.chapter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
   font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 2.5px;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
   font-weight: 700;
-  color: #79c5f2;
-  margin-bottom: 6px;
   text-transform: uppercase;
+  backdrop-filter: blur(8px);
 }
 
-.chapter-kicker-tag.gold { color: #ffcb65; }
-.chapter-kicker-tag.crimson { color: #ff8e8e; }
-.chapter-kicker-tag.gilded { color: #f7e096; }
+.capri-badge {
+  background: rgba(43, 111, 159, 0.28);
+  border: 1px solid rgba(121, 197, 242, 0.45);
+  color: #aee2ff;
+}
+
+.moroccan-badge {
+  background: rgba(184, 94, 38, 0.28);
+  border: 1px solid rgba(255, 170, 50, 0.45);
+  color: #ffd88a;
+}
+
+.wedding-badge {
+  background: rgba(184, 45, 68, 0.28);
+  border: 1px solid rgba(255, 142, 142, 0.45);
+  color: #ffb8b8;
+}
+
+.gilded-badge {
+  background: rgba(217, 164, 65, 0.25);
+  border: 1px solid rgba(247, 224, 150, 0.45);
+  color: #f7e096;
+}
+
+.badge-num {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-gold-light);
+}
+
+.badge-dot {
+  font-size: 0.55rem;
+  opacity: 0.75;
+}
+
+.chapter-ritual-pill {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(243, 235, 220, 0.75);
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chapter-ritual-pill.gold-script {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--color-gold-light);
+  letter-spacing: 2px;
+  border-color: rgba(217, 164, 65, 0.35);
+}
+
+/* Ceremony Title & Subtitle */
+.chapter-title-group {
+  margin-top: 2px;
+  max-width: 82%;
+}
 
 .chapter-event-name {
   font-family: var(--font-serif);
-  font-size: 1.65rem;
-  color: var(--color-text-bright);
+  font-size: clamp(1.75rem, 5.2vw, 2.1rem);
   font-weight: 600;
+  letter-spacing: 0.5px;
   line-height: 1.15;
-  margin-bottom: 8px;
+  color: var(--color-text-bright);
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
 }
 
-.chapter-datetime {
+.chapter-event-subtitle {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-style: italic;
+  letter-spacing: 0.8px;
+  color: var(--color-gold-light);
+  margin-top: 4px;
+  opacity: 0.95;
+  line-height: 1.35;
+}
+
+/* Date & Time Bar */
+.chapter-datetime-bar {
   display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  background: rgba(18, 5, 9, 0.55);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(217, 164, 65, 0.22);
+  border-radius: 12px;
+  padding: 8px 12px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.dt-item {
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   font-family: var(--font-sans);
-  font-size: 0.66rem;
-  letter-spacing: 1.2px;
-  color: var(--color-gold-light);
+  font-size: 0.68rem;
+  letter-spacing: 1px;
   font-weight: 600;
-  margin-bottom: 12px;
+  color: var(--color-text-bright);
 }
 
-.ch-dot { color: var(--color-gold); }
+.dt-icon {
+  font-size: 0.82rem;
+}
 
+.dt-sep {
+  color: var(--color-gold);
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+/* Story Prose / Note */
 .chapter-note {
   font-family: var(--font-display);
-  font-size: 0.98rem;
-  line-height: 1.5;
-  color: rgba(243, 235, 220, 0.88);
-  margin-bottom: 16px;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: rgba(247, 241, 230, 0.94);
+  font-weight: 400;
+  letter-spacing: 0.3px;
+  margin: 2px 0 6px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.chapter-location-tag {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(217, 164, 65, 0.25);
+/* Venue & Attire Details Grid */
+.chapter-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   width: 100%;
-  font-family: var(--font-sans);
-  font-size: 0.66rem;
-  letter-spacing: 1px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(217, 164, 65, 0.22);
+}
+
+.detail-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(18, 5, 9, 0.6);
+  border: 1px solid rgba(217, 164, 65, 0.2);
+  border-radius: 10px;
+  padding: 7px 12px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.detail-pill:hover {
+  border-color: rgba(217, 164, 65, 0.45);
+  background: rgba(217, 164, 65, 0.08);
+}
+
+.detail-icon {
+  width: 16px;
+  height: 16px;
   color: var(--color-gold);
+  flex-shrink: 0;
 }
 
-/* Event 1: Capri */
+.detail-emoji {
+  font-size: 1.05rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  text-align: left;
+}
+
+.detail-label {
+  font-family: var(--font-sans);
+  font-size: 0.52rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--color-gold);
+  opacity: 0.9;
+}
+
+.detail-val {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.6px;
+  color: var(--color-text-bright);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Chapter 1: Capri Style (Manglik Prasango)
+   ========================================================================== */
 #chapter-0 {
-  background: radial-gradient(circle at 85% 15%, rgba(68, 142, 196, 0.35) 0%, transparent 60%),
-              linear-gradient(160deg, #102638 0%, #071521 60%, #030a10 100%);
+  background: radial-gradient(circle at 85% 12%, rgba(68, 142, 196, 0.4) 0%, transparent 60%),
+              radial-gradient(circle at 15% 85%, rgba(255, 213, 61, 0.12) 0%, transparent 50%),
+              linear-gradient(165deg, #0b1f33 0%, #061422 55%, #020910 100%);
 }
 
-.capri-decorations { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.capri-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 
 .capri-tile-border-top, .capri-tile-border-bottom {
   position: absolute;
   left: 0;
   right: 0;
-  height: 10px;
-  background-image: repeating-linear-gradient(45deg, #448ec4 0, #448ec4 8px, #fff 8px, #fff 16px, #ffd53d 16px, #ffd53d 24px);
-  opacity: 0.35;
+  height: 12px;
+  z-index: 5;
+  opacity: 0.85;
 }
 .capri-tile-border-top { top: 0; }
 .capri-tile-border-bottom { bottom: 0; }
 
+.maiolica-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .capri-lemon-branch {
   position: absolute;
-  top: -10px;
-  right: -10px;
-  width: 170px;
-  height: 150px;
-  z-index: 5;
+  top: -4px;
+  right: -6px;
+  width: 135px;
+  height: 120px;
+  z-index: 4;
   transform-origin: top right;
-  animation: lemonSway 5s ease-in-out infinite alternate;
+  animation: lemonSway 5.5s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 @keyframes lemonSway {
   0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(-3deg) translateY(3px) scale(1.02); }
+  50% { transform: rotate(-3.5deg) translateY(3px) scale(1.02); }
   100% { transform: rotate(2deg) translateY(-2px) scale(0.99); }
 }
 
-.lemon-svg { width: 100%; height: 100%; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.5)); }
+.lemon-svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
+}
 
-.capri-drifting-petals { position: absolute; inset: 0; }
+.capri-drifting-petals {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
 
 .blossom-flake {
   position: absolute;
@@ -1291,219 +1485,281 @@ html, body {
   border-radius: 50% 0 50% 50%;
   opacity: 0;
   animation: blossomFall 7s linear infinite;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
 }
 
-.blossom-flake.f1 { left: 20%; animation-delay: 0.5s; }
-.blossom-flake.f2 { left: 45%; animation-delay: 2.5s; width: 7px; height: 7px; }
-.blossom-flake.f3 { left: 70%; animation-delay: 4.5s; }
-.blossom-flake.f4 { left: 85%; animation-delay: 1.2s; width: 6px; height: 6px; }
+.blossom-flake.f1 { left: 18%; animation-delay: 0.2s; }
+.blossom-flake.f2 { left: 42%; animation-delay: 2.2s; width: 7px; height: 7px; }
+.blossom-flake.f3 { left: 68%; animation-delay: 4.4s; }
+.blossom-flake.f4 { left: 88%; animation-delay: 1.4s; width: 6px; height: 6px; }
 
 @keyframes blossomFall {
   0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
   15% { opacity: 0.85; }
   85% { opacity: 0.7; }
-  100% { transform: translateY(400px) rotate(360deg); opacity: 0; }
+  100% { transform: translateY(520px) rotate(360deg); opacity: 0; }
 }
 
-/* Event 2: Sangeet */
+/* ==========================================================================
+   Chapter 2: Sangeet (Moroccan Lanterns)
+   ========================================================================== */
 #chapter-1 {
-  background: radial-gradient(circle at 50% 25%, rgba(184, 94, 38, 0.28) 0%, transparent 60%),
-              linear-gradient(160deg, #2b0b14 0%, #17050a 65%, #0c0205 100%);
+  background: radial-gradient(circle at 50% 20%, rgba(204, 107, 43, 0.28) 0%, transparent 60%),
+              radial-gradient(circle at 85% 85%, rgba(140, 24, 48, 0.2) 0%, transparent 55%),
+              linear-gradient(165deg, #2b0b14 0%, #17050a 60%, #0c0205 100%);
 }
 
-.moroccan-decorations { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.moroccan-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 
 .moroccan-arch-overlay {
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 220px;
-  height: 160px;
-  border: 1px dashed rgba(217, 164, 65, 0.25);
-  border-radius: 110px 110px 0 0;
+  width: 260px;
+  height: 140px;
   pointer-events: none;
+  opacity: 0.75;
+}
+
+.moroccan-arch-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .moroccan-flank-lanterns {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 50px;
+  width: 36px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 32px;
+  z-index: 4;
 }
-.moroccan-flank-lanterns.flank-left { left: 8px; }
-.moroccan-flank-lanterns.flank-right { right: 8px; }
+.moroccan-flank-lanterns.flank-left { left: 6px; }
+.moroccan-flank-lanterns.flank-right { right: 6px; }
 
 .lantern-drop {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: lanternCascade 4s ease-in-out infinite alternate;
+  animation: lanternCascade 4.5s ease-in-out infinite alternate;
 }
 
 .lantern-drop-1 { animation-delay: 0s; }
-.lantern-drop-2 { animation-delay: 0.8s; }
-.lantern-drop-3 { animation-delay: 1.6s; }
+.lantern-drop-2 { animation-delay: 0.9s; }
+.lantern-drop-3 { animation-delay: 1.8s; }
 .lantern-drop-4 { animation-delay: 0.4s; }
-.lantern-drop-5 { animation-delay: 1.2s; }
-.lantern-drop-6 { animation-delay: 2.0s; }
+.lantern-drop-5 { animation-delay: 1.3s; }
+.lantern-drop-6 { animation-delay: 2.2s; }
 
 .lantern-chain {
-  width: 1px;
-  height: 28px;
+  width: 1.5px;
+  height: 32px;
   background: repeating-linear-gradient(180deg, #d9a441 0, #d9a441 3px, transparent 3px, transparent 6px);
 }
+.lantern-chain.short { height: 20px; }
 
 .moroccan-lantern-body {
   position: relative;
   width: 24px;
   height: 38px;
-  background: linear-gradient(180deg, #5c3c12 0%, #2b1c09 50%, #7d541a 100%);
-  border: 1.5px solid #d9a441;
+  background: linear-gradient(180deg, #5c3c12 0%, #201305 50%, #7d541a 100%);
+  border: 1.5px solid #e5b34a;
   border-radius: 40% 40% 45% 45% / 25% 25% 45% 45%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 14px rgba(255, 170, 40, 0.75);
+  box-shadow: 0 0 16px rgba(255, 170, 40, 0.8), inset 0 0 8px rgba(255, 180, 50, 0.4);
 }
 .moroccan-lantern-body.medium { width: 20px; height: 32px; }
 .moroccan-lantern-body.small { width: 16px; height: 26px; }
 
+.lantern-lattice {
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed rgba(255, 215, 100, 0.4);
+  border-radius: 4px;
+}
+
 .lantern-flame {
+  position: relative;
   width: 7px;
   height: 12px;
-  background: radial-gradient(circle, #fff 15%, #ffd24d 50%, #ff8800 100%);
+  background: radial-gradient(circle, #ffffff 15%, #ffd24d 55%, #ff8800 100%);
   border-radius: 50% 50% 40% 40%;
-  box-shadow: 0 0 10px #ffaa00;
+  box-shadow: 0 0 12px #ffaa00;
   animation: flameFlicker 1.4s ease-in-out infinite alternate;
 }
 
 .lantern-glow {
   position: absolute;
-  inset: -15px;
+  inset: -16px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 50, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(255, 180, 50, 0.38) 0%, transparent 70%);
 }
 
 @keyframes lanternCascade {
   0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(8px) rotate(-3deg); }
+  50% { transform: translateY(8px) rotate(-3.5deg); }
   100% { transform: translateY(-4px) rotate(3deg); }
 }
 
 .moroccan-embers .ember {
   position: absolute;
-  width: 3px;
-  height: 3px;
+  width: 3.5px;
+  height: 3.5px;
   background: #ffc44d;
   border-radius: 50%;
-  box-shadow: 0 0 6px #ff8c00;
-  animation: emberFloat 5s ease-in infinite;
+  box-shadow: 0 0 8px #ff8c00;
+  animation: emberFloat 5.5s ease-in infinite;
 }
-.ember.e1 { left: 25%; bottom: 40px; animation-delay: 0.2s; }
-.ember.e2 { left: 75%; bottom: 60px; animation-delay: 1.8s; }
-.ember.e3 { left: 50%; bottom: 20px; animation-delay: 3.2s; }
+.ember.e1 { left: 24%; bottom: 30px; animation-delay: 0.2s; }
+.ember.e2 { left: 74%; bottom: 50px; animation-delay: 1.8s; }
+.ember.e3 { left: 48%; bottom: 15px; animation-delay: 3.2s; }
+.ember.e4 { left: 35%; bottom: 65px; animation-delay: 4.1s; }
 
 @keyframes emberFloat {
   0% { transform: translateY(0); opacity: 0; }
-  30% { opacity: 0.9; }
-  100% { transform: translateY(-120px) translateX(15px); opacity: 0; }
+  30% { opacity: 0.95; }
+  100% { transform: translateY(-160px) translateX(20px); opacity: 0; }
 }
 
-/* Event 3: Wedding */
+/* ==========================================================================
+   Chapter 3: Wedding (Royal Vivah - Floral Border Frame)
+   ========================================================================== */
 #chapter-2 {
-  background: radial-gradient(circle at 50% 30%, rgba(184, 45, 68, 0.25) 0%, transparent 65%),
-              linear-gradient(160deg, #2b0811 0%, #160408 60%, #0a0104 100%);
+  background: radial-gradient(circle at 50% 25%, rgba(184, 45, 68, 0.32) 0%, transparent 65%),
+              radial-gradient(circle at 50% 85%, rgba(217, 164, 65, 0.18) 0%, transparent 60%),
+              linear-gradient(165deg, #2b0811 0%, #160408 60%, #0a0104 100%);
 }
 
-.wedding-flowers-decorations { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.wedding-flowers-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 
-.floral-frame-border { position: absolute; background-size: 24px 24px; z-index: 4; }
+.royal-floral-frame {
+  position: absolute;
+  inset: 4px;
+  border-radius: 20px;
+  pointer-events: none;
+  animation: floralPulse 4s ease-in-out infinite alternate;
+}
+
+.floral-frame-border {
+  position: absolute;
+  z-index: 4;
+}
+
 .floral-frame-border.top, .floral-frame-border.bottom {
-  left: 20px;
-  right: 20px;
-  height: 12px;
-  background-image: radial-gradient(circle at 12px 6px, #f5b24e 4px, transparent 5px),
-                    radial-gradient(circle at 6px 6px, #e84d6b 3px, transparent 4px),
-                    radial-gradient(circle at 18px 6px, #ffffff 3px, transparent 4px);
+  left: 28px;
+  right: 28px;
+  height: 14px;
+  background-image:
+    radial-gradient(circle at 14px 7px, #ffd557 3.5px, transparent 4.5px),
+    radial-gradient(circle at 7px 7px, #e84d6b 3px, transparent 4px),
+    radial-gradient(circle at 21px 7px, #ffffff 2.5px, transparent 3.5px);
+  background-size: 28px 14px;
   background-repeat: repeat-x;
-  animation: floralPulse 3s ease-in-out infinite alternate;
 }
-.floral-frame-border.top { top: 6px; }
-.floral-frame-border.bottom { bottom: 6px; }
+.floral-frame-border.top { top: 4px; }
+.floral-frame-border.bottom { bottom: 4px; }
 
 .floral-frame-border.left, .floral-frame-border.right {
-  top: 20px;
-  bottom: 20px;
-  width: 12px;
-  background-image: radial-gradient(circle at 6px 12px, #f5b24e 4px, transparent 5px),
-                    radial-gradient(circle at 6px 6px, #e84d6b 3px, transparent 4px),
-                    radial-gradient(circle at 6px 18px, #ffffff 3px, transparent 4px);
+  top: 28px;
+  bottom: 28px;
+  width: 14px;
+  background-image:
+    radial-gradient(circle at 7px 14px, #ffd557 3.5px, transparent 4.5px),
+    radial-gradient(circle at 7px 7px, #e84d6b 3px, transparent 4px),
+    radial-gradient(circle at 7px 21px, #ffffff 2.5px, transparent 3.5px);
+  background-size: 14px 28px;
   background-repeat: repeat-y;
-  animation: floralPulse 3s ease-in-out infinite alternate;
 }
-.floral-frame-border.left { left: 6px; }
-.floral-frame-border.right { right: 6px; }
+.floral-frame-border.left { left: 4px; }
+.floral-frame-border.right { right: 4px; }
 
 .floral-corner {
   position: absolute;
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   z-index: 5;
-  background: radial-gradient(circle at center, #ffd257 30%, #e04163 70%, transparent 75%);
+  background: radial-gradient(circle at center, #ffe074 25%, #e04163 65%, transparent 72%);
   border-radius: 50%;
-  filter: drop-shadow(0 0 8px rgba(232, 77, 107, 0.6));
+  filter: drop-shadow(0 0 8px rgba(232, 77, 107, 0.7));
 }
-.floral-corner.top-left { top: 6px; left: 6px; }
-.floral-corner.top-right { top: 6px; right: 6px; }
-.floral-corner.bottom-left { bottom: 6px; left: 6px; }
-.floral-corner.bottom-right { bottom: 6px; right: 6px; }
+.floral-corner.top-left { top: 4px; left: 4px; }
+.floral-corner.top-right { top: 4px; right: 4px; }
+.floral-corner.bottom-left { bottom: 4px; left: 4px; }
+.floral-corner.bottom-right { bottom: 4px; right: 4px; }
 
 @keyframes floralPulse {
-  0% { filter: brightness(0.9) drop-shadow(0 0 4px rgba(245, 178, 78, 0.4)); }
-  100% { filter: brightness(1.2) drop-shadow(0 0 10px rgba(232, 77, 107, 0.7)); }
+  0% { filter: brightness(0.95) drop-shadow(0 0 5px rgba(245, 178, 78, 0.45)); }
+  100% { filter: brightness(1.22) drop-shadow(0 0 12px rgba(232, 77, 107, 0.8)); }
 }
 
 .floating-rose-petals .rose-petal {
   position: absolute;
-  width: 11px;
-  height: 14px;
+  width: 12px;
+  height: 15px;
   background: radial-gradient(circle at 40% 40%, #ff8c9f 0%, #db3356 70%, #871028 100%);
   border-radius: 50% 50% 20% 60%;
   opacity: 0;
-  animation: rosePetalDrift 6.5s linear infinite;
+  animation: rosePetalDrift 7s linear infinite;
+  box-shadow: 0 0 6px rgba(219, 51, 86, 0.5);
 }
-.rose-petal.p1 { left: 15%; animation-delay: 0.3s; }
-.rose-petal.p2 { left: 40%; animation-delay: 2.1s; transform: scale(0.8); }
-.rose-petal.p3 { left: 65%; animation-delay: 4.2s; transform: scale(1.1); }
-.rose-petal.p4 { left: 82%; animation-delay: 1.5s; }
-.rose-petal.p5 { left: 52%; animation-delay: 5.0s; transform: scale(0.7); }
+.rose-petal.p1 { left: 16%; animation-delay: 0.3s; }
+.rose-petal.p2 { left: 38%; animation-delay: 2.2s; transform: scale(0.85); }
+.rose-petal.p3 { left: 66%; animation-delay: 4.4s; transform: scale(1.1); }
+.rose-petal.p4 { left: 84%; animation-delay: 1.5s; }
+.rose-petal.p5 { left: 52%; animation-delay: 5.2s; transform: scale(0.75); }
 
 @keyframes rosePetalDrift {
   0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-  20% { opacity: 0.9; }
+  20% { opacity: 0.95; }
   85% { opacity: 0.75; }
-  100% { transform: translateY(380px) rotate(280deg); opacity: 0; }
+  100% { transform: translateY(520px) rotate(280deg); opacity: 0; }
 }
 
-/* Event 4: Reception */
+/* ==========================================================================
+   Chapter 4: Reception (Chandeliers from Gilded Hall)
+   ========================================================================== */
 #chapter-3 {
-  background: radial-gradient(circle at 50% 15%, rgba(217, 164, 65, 0.3) 0%, transparent 65%),
-              linear-gradient(160deg, #30170a 0%, #1c0c05 60%, #0a0401 100%);
+  background: radial-gradient(circle at 50% 15%, rgba(217, 164, 65, 0.32) 0%, transparent 65%),
+              radial-gradient(circle at 50% 85%, rgba(140, 90, 20, 0.22) 0%, transparent 60%),
+              linear-gradient(165deg, #2a1608 0%, #170c04 60%, #0a0401 100%);
 }
 
-.gilded-hall-decorations { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.gilded-hall-decorations {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
 
 .gilded-arch-backdrop {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: 130px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(217, 164, 65, 0.22) 0%, transparent 75%);
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.gilded-arch-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .chandeliers-row {
@@ -1515,7 +1771,7 @@ html, body {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 0 16px;
+  padding: 0 14px;
   z-index: 5;
 }
 
@@ -1524,82 +1780,98 @@ html, body {
   flex-direction: column;
   align-items: center;
   position: relative;
-  animation: chandelierSway 4.5s ease-in-out infinite alternate;
+  animation: chandelierSway 4.8s ease-in-out infinite alternate;
 }
-.c-left { animation-delay: 0.5s; }
+.c-left { animation-delay: 0.6s; }
 .c-center { animation-delay: 0s; transform: scale(1.15); }
-.c-right { animation-delay: 1s; }
+.c-right { animation-delay: 1.2s; }
 
 @keyframes chandelierSway {
-  0% { transform: rotate(-1.5deg); }
-  100% { transform: rotate(1.5deg); }
+  0% { transform: rotate(-2deg); }
+  100% { transform: rotate(2deg); }
 }
 
-.chandelier-chain { width: 1px; height: 25px; background: linear-gradient(180deg, #e5c158, #b88e28); }
-.chandelier-chain.grand { height: 32px; }
+.chandelier-chain {
+  width: 1.5px;
+  height: 26px;
+  background: linear-gradient(180deg, #f7e096, #b88e28);
+}
+.chandelier-chain.grand { height: 34px; }
 
 .chandelier-crown {
   width: 32px;
   height: 10px;
   background: linear-gradient(90deg, #b88e28, #fff4d0, #b88e28);
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(229, 193, 88, 0.6);
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.7);
 }
-.chandelier-crown.grand { width: 44px; height: 12px; }
+.chandelier-crown.grand { width: 46px; height: 12px; }
 
-.chandelier-arms { display: flex; gap: 6px; margin-top: 3px; }
+.chandelier-arms {
+  display: flex;
+  gap: 6px;
+  margin-top: 3px;
+}
+.chandelier-arms.grand { gap: 5px; }
 
 .crystal-bulb {
   width: 5px;
-  height: 8px;
+  height: 9px;
   background: #ffffff;
   border-radius: 50% 50% 30% 30%;
-  box-shadow: 0 0 12px #fff4a3, 0 0 20px rgba(229, 193, 88, 0.8);
-  animation: crystalSparkle 2s ease-in-out infinite alternate;
+  box-shadow: 0 0 12px #fff4a3, 0 0 20px rgba(229, 193, 88, 0.85);
+  animation: crystalSparkle 2.2s ease-in-out infinite alternate;
 }
 
 .crystal-pendants {
-  width: 20px;
+  width: 22px;
   height: 18px;
-  border-left: 2px solid rgba(255, 244, 208, 0.6);
-  border-right: 2px solid rgba(255, 244, 208, 0.6);
-  border-bottom: 2px solid rgba(255, 244, 208, 0.6);
+  border-left: 2px solid rgba(255, 244, 208, 0.7);
+  border-right: 2px solid rgba(255, 244, 208, 0.7);
+  border-bottom: 2px solid rgba(255, 244, 208, 0.7);
   border-radius: 0 0 10px 10px;
   margin-top: 2px;
 }
-.crystal-pendants.grand { width: 28px; height: 24px; }
+.crystal-pendants.grand { width: 30px; height: 24px; }
 
 .chandelier-flare-glow {
   position: absolute;
-  top: 25px;
-  width: 70px;
-  height: 70px;
+  top: 26px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 240, 180, 0.45) 0%, transparent 65%);
-  animation: flarePulse 2.5s ease-in-out infinite alternate;
+  animation: flarePulse 2.8s ease-in-out infinite alternate;
 }
+.chandelier-flare-glow.grand { width: 94px; height: 94px; }
 
 @keyframes crystalSparkle {
   0% { opacity: 0.7; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1.15); filter: drop-shadow(0 0 6px #ffffff); }
+  100% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 8px #ffffff); }
 }
 
 @keyframes flarePulse {
   0% { transform: scale(0.85); opacity: 0.5; }
-  100% { transform: scale(1.25); opacity: 0.85; }
+  100% { transform: scale(1.25); opacity: 0.9; }
 }
 
 .golden-stardust .stardust {
   position: absolute;
   color: var(--color-gold-light);
-  font-size: 10px;
+  font-size: 11px;
   opacity: 0;
-  animation: stardustTwinkle 3s ease-in-out infinite;
+  animation: stardustTwinkle 3.2s ease-in-out infinite;
 }
-.stardust.s1 { top: 75px; left: 30%; animation-delay: 0.2s; }
-.stardust.s2 { top: 90px; right: 28%; animation-delay: 1.1s; font-size: 12px; }
-.stardust.s3 { top: 120px; left: 52%; animation-delay: 2.1s; }
-.stardust.s4 { top: 60px; right: 42%; animation-delay: 1.7s; }
+.stardust.s1 { top: 75px; left: 28%; animation-delay: 0.2s; }
+.stardust.s2 { top: 90px; right: 26%; animation-delay: 1.1s; font-size: 13px; }
+.stardust.s3 { top: 125px; left: 50%; animation-delay: 2.1s; }
+.stardust.s4 { top: 65px; right: 40%; animation-delay: 1.7s; }
+.stardust.s5 { top: 140px; right: 18%; animation-delay: 2.6s; font-size: 9px; }
+
+@keyframes stardustTwinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.35); text-shadow: 0 0 8px #ffd557; }
+}
 
 @keyframes stardustTwinkle {
   0%, 100% { opacity: 0; transform: scale(0.5); }
