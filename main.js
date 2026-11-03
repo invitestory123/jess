@@ -128,10 +128,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     playAuspiciousChime();
+    initRajmahalPetals();
 
     setTimeout(() => {
       initScratchCanvas();
     }, 200);
+  }
+
+  // --- Rajmahal Floating Marigold Petals Engine ---
+  function initRajmahalPetals() {
+    const petalsContainer = document.getElementById('rajmahalPetals');
+    if (!petalsContainer) return;
+    petalsContainer.innerHTML = '';
+    const petalCount = 16;
+    for (let i = 0; i < petalCount; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'marigold-petal';
+      const left = (Math.random() * 94 + 3).toFixed(1);
+      const size = (Math.random() * 10 + 10).toFixed(0);
+      const fallDuration = (Math.random() * 8 + 9).toFixed(1);
+      const swayDuration = (Math.random() * 2 + 2.2).toFixed(1);
+      const delay = (-(Math.random() * 15)).toFixed(1);
+      const isGolden = Math.random() > 0.5;
+
+      petal.style.left = `${left}%`;
+      petal.style.animationDuration = `${fallDuration}s`;
+      petal.style.animationDelay = `${delay}s`;
+
+      const inner = document.createElement('div');
+      inner.className = 'marigold-petal-inner';
+      inner.style.width = `${size}px`;
+      inner.style.height = `${(size * 1.35).toFixed(0)}px`;
+      inner.style.borderRadius = '60% 40% 55% 45%';
+      inner.style.background = isGolden 
+        ? 'linear-gradient(160deg, #ffd166 0%, #d9822b 75%)'
+        : 'linear-gradient(160deg, #f7b733 0%, #e06a1b 75%)';
+      inner.style.boxShadow = '0 0 6px rgba(230, 140, 40, 0.45)';
+      inner.style.animationDuration = `${swayDuration}s`;
+
+      petal.appendChild(inner);
+      petalsContainer.appendChild(petal);
+    }
   }
 
   // --- Door Opening Interaction Handler ---
