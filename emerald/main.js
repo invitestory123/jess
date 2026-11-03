@@ -21,12 +21,32 @@ document.addEventListener('DOMContentLoaded', () => {
   const replayBtn = document.getElementById('replayBtn');
   const replayHeaderBtn = document.getElementById('replayHeaderBtn');
   const addToCalendarBtn = document.getElementById('addToCalendarBtn');
+  const bgMusic = document.getElementById('bgMusic');
+
+  if (bgMusic) {
+    bgMusic.loop = true;
+  }
 
   // Application State
   let isAudioMuted = false;
   let isPlaying = false;
   let hasOpened = false;
   let audioCtx = null;
+
+  // --- Background Music Helper Functions ---
+  function playBackgroundMusic() {
+    if (!bgMusic || isAudioMuted) return;
+    initAudioContext();
+    bgMusic.play().catch(() => {
+      // Browsers defer autoplay until user interaction
+    });
+  }
+
+  function pauseBackgroundMusic() {
+    if (bgMusic) {
+      bgMusic.pause();
+    }
+  }
 
   // --- Audio Context Helper for Ambient Chime ---
   function initAudioContext() {
@@ -127,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
       invitationOverlay.classList.add('revealed');
     }
 
+    playBackgroundMusic();
     playAuspiciousChime();
     initRajmahalPetals();
 
@@ -177,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     isPlaying = true;
     initAudioContext();
+    playBackgroundMusic();
 
     if (tapOverlay) tapOverlay.classList.add('fade-out');
     if (posterImg) posterImg.classList.add('fade-out');
@@ -241,6 +263,11 @@ document.addEventListener('DOMContentLoaded', () => {
       video.currentTime = 0;
     }
 
+    if (bgMusic && !isAudioMuted) {
+      bgMusic.currentTime = 0;
+      playBackgroundMusic();
+    }
+
     if (scratchCanvas) {
       scratchCanvas.classList.remove('fade-out');
       scratchCanvas.style.opacity = '1';
@@ -261,9 +288,23 @@ document.addEventListener('DOMContentLoaded', () => {
       isAudioMuted = !isAudioMuted;
       if (audioIconOn) audioIconOn.classList.toggle('hidden', isAudioMuted);
       if (audioIconOff) audioIconOff.classList.toggle('hidden', !isAudioMuted);
-      if (!isAudioMuted) initAudioContext();
+      if (isAudioMuted) {
+        pauseBackgroundMusic();
+      } else {
+        initAudioContext();
+        playBackgroundMusic();
+      }
     });
   }
+
+  // Universal User Gesture Audio Unlock
+  ['click', 'touchstart'].forEach((evt) => {
+    document.addEventListener(evt, () => {
+      if (!isAudioMuted && bgMusic && bgMusic.paused && (isPlaying || hasOpened)) {
+        playBackgroundMusic();
+      }
+    }, { passive: true });
+  });
 
   // Forward desktop wheel scrolling to content-scrollable container
   window.addEventListener('wheel', (e) => {
