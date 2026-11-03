@@ -269,11 +269,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (scratchCanvas) {
+      scratchCanvas.style.display = 'block';
       scratchCanvas.classList.remove('fade-out');
       scratchCanvas.style.opacity = '1';
       scratchCanvas.style.pointerEvents = 'auto';
     }
-    if (scratchHint) scratchHint.style.opacity = '1';
+    if (scratchHint) {
+      scratchHint.classList.remove('hidden', 'fade-out');
+      scratchHint.style.display = 'flex';
+      scratchHint.style.animation = '';
+      scratchHint.style.opacity = '1';
+      scratchHint.style.pointerEvents = 'none';
+    }
     if (quickRevealBtn) quickRevealBtn.style.display = 'block';
 
     initFloatingLanterns();
@@ -330,7 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
     
     scratchCanvas.width = container.offsetWidth || 340;
-    scratchCanvas.height = container.offsetHeight || 135;
+    scratchCanvas.height = container.offsetHeight || 152;
     
     // Metallic Gold Foil Gradient
     const grad = scratchCtx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
@@ -360,9 +367,22 @@ document.addEventListener('DOMContentLoaded', () => {
     scratchCtx.fillText('✦ SCRATCH TO REVEAL WEDDING DATES ✦', scratchCanvas.width / 2, scratchCanvas.height / 2 + 5);
   }
 
+  function hideScratchHint() {
+    if (scratchHint) {
+      scratchHint.classList.add('hidden', 'fade-out');
+      scratchHint.style.display = 'none';
+      scratchHint.style.animation = 'none';
+      scratchHint.style.opacity = '0';
+      scratchHint.style.pointerEvents = 'none';
+    }
+  }
+
   function scratchAt(x, y) {
     if (!scratchCtx || hasScratchedCleared) return;
     
+    // Hide hint badge immediately on first interaction
+    hideScratchHint();
+
     scratchCtx.globalCompositeOperation = 'destination-out';
     scratchCtx.beginPath();
     scratchCtx.arc(x, y, 24, 0, Math.PI * 2);
@@ -419,13 +439,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hasScratchedCleared) return;
     hasScratchedCleared = true;
     
+    hideScratchHint();
+
     if (scratchCanvas) {
       scratchCanvas.classList.add('fade-out');
+      scratchCanvas.style.opacity = '0';
+      scratchCanvas.style.pointerEvents = 'none';
       setTimeout(() => {
-        scratchCanvas.style.pointerEvents = 'none';
+        scratchCanvas.style.display = 'none';
       }, 500);
     }
-    if (scratchHint) scratchHint.style.opacity = '0';
     if (quickRevealBtn) quickRevealBtn.style.display = 'none';
     
     triggerConfetti();
@@ -436,6 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ['mousedown', 'touchstart'].forEach(evt => {
       scratchCanvas.addEventListener(evt, (e) => {
         isScratching = true;
+        hideScratchHint();
         const coords = getScratchCoords(e);
         scratchAt(coords.x, coords.y);
       }, { passive: true });
@@ -444,6 +468,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ['mousemove', 'touchmove'].forEach(evt => {
       scratchCanvas.addEventListener(evt, (e) => {
         if (!isScratching) return;
+        hideScratchHint();
         const coords = getScratchCoords(e);
         scratchAt(coords.x, coords.y);
       }, { passive: true });
