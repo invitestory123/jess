@@ -104,9 +104,21 @@
         </div>
       </div>
 
-      <!-- 2. UNIFIED FLORAL BACKGROUND THEME (Persistent floral architectural look throughout all sections) -->
-      <div class="invitation-overlay floral-theme hidden" id="invitationOverlay">
+      <!-- 2. UNIFIED ROYAL PALACE FLORAL THEME (Combined Gilded, Emerald & Rajmahal Design) -->
+      <div class="invitation-overlay royal-palace-theme hidden" id="invitationOverlay">
         
+        <!-- Rajmahal Layer 1: Palace Golden Aurora Glows -->
+        <div class="rajmahal-aurora" aria-hidden="true">
+          <div class="aurora-blob blob-gold"></div>
+          <div class="aurora-blob blob-amber"></div>
+        </div>
+
+        <!-- Rajmahal Layer 2: Slowly Rotating Sacred Mandala Behind Hero -->
+        <img src="./assets/mandala.png" alt="" class="rajmahal-rotating-mandala" aria-hidden="true" />
+
+        <!-- Rajmahal Layer 3: Floating Marigold & Rose Petals Rain -->
+        <div class="rajmahal-petals-container" id="rajmahalPetals" aria-hidden="true"></div>
+
         <!-- Celebration Confetti Particle Layer -->
         <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
 
@@ -116,12 +128,22 @@
           <!-- 3. WEDDING STORY – OPENING TEXT -->
           <div class="wedding-story-block animate-element" style="--delay: 0.1s;">
             
+            <!-- Flanking Auspicious Diyas with Flickering Flames -->
+            <div class="rajmahal-diya diya-left" aria-hidden="true">
+              <div class="diya-flame-glow"></div>
+              <img src="./assets/diya.png" alt="Auspicious Diya" class="diya-img" />
+            </div>
+
+            <div class="rajmahal-diya diya-right" aria-hidden="true">
+              <div class="diya-flame-glow"></div>
+              <img src="./assets/diya.png" alt="Auspicious Diya" class="diya-img" />
+            </div>
+
             <!-- Sacred Invocation Header -->
             <p class="ganesh-shloka-heading">II SHREE GANESHAYA NAMAH II</p>
 
-            <!-- Lord Ganesha Icon (Uploaded Artwork) -->
+            <!-- Lord Ganesha Icon (Cleaned & High-Res) -->
             <div class="ganesha-emblem-wrap">
-              <div class="ganesha-halo-glow"></div>
               <img src="./assets/ganesha.png" alt="Shree Ganesh" class="ganesha-img" />
             </div>
 
@@ -140,7 +162,7 @@
               </p>
             </div>
 
-            <!-- 4. SCROLLING TEXT (No hashtags, Colorado Springs, CO) -->
+            <!-- 4. SCROLLING TEXT (Full mobile screen width ribbon, Colorado Springs, CO) -->
             <div class="scrolling-marquee-strip">
               <div class="marquee-track">
                 <span>Colorado Springs, CO - Jessica weds Dwij - May 7 &amp; 8, 2027 ✦ Colorado Springs, CO - Jessica weds Dwij - May 7 &amp; 8, 2027 ✦ </span>
@@ -328,27 +350,58 @@
                 </div>
               </div>
 
-              <!-- 10. EVENT CARD THREE – RECEPTION (Beautiful hanging chandeliers from reference photo) -->
+              <!-- 10. EVENT CARD THREE – RECEPTION (Gilded Hall Cascading Crystal Chandeliers & Gilded Arch) -->
               <div class="chapter-card card-reception" id="chapter-2" data-chapter="2">
                 <div class="event-animation-layer reception-chandeliers-layer" aria-hidden="true">
-                  <!-- Hanging Chandeliers from User Reference -->
-                  <div class="chandeliers-hanging-group">
-                    <div class="chandelier-unit ch-left">
-                      <div class="ch-chain"></div>
-                      <img src="./assets/chandelier.png" alt="Crystal Chandelier" class="chandelier-art-img" />
-                      <div class="ch-glow-pulse"></div>
+                  <!-- Gilded Palace Archway Backdrop -->
+                  <div class="gilded-arch-backdrop">
+                    <svg viewBox="0 0 320 120" preserveAspectRatio="none" class="gilded-arch-svg">
+                      <path d="M0 120 V30 Q160 -10 320 30 V120" fill="none" stroke="rgba(246, 226, 174, 0.28)" stroke-width="1.5" />
+                      <path d="M20 120 V45 Q160 5 300 45 V120" fill="none" stroke="rgba(217, 164, 65, 0.18)" stroke-width="1" />
+                    </svg>
+                  </div>
+
+                  <!-- Triple Cascading Crystal Chandeliers from Gilded Hall (Pure Crystal & Gold, No Image Borders) -->
+                  <div class="chandeliers-row">
+                    <div class="chandelier-item c-left">
+                      <div class="chandelier-chain"></div>
+                      <div class="chandelier-crown"></div>
+                      <div class="chandelier-arms">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                      </div>
+                      <div class="crystal-pendants"></div>
+                      <div class="chandelier-flare-glow"></div>
                     </div>
-                    <div class="chandelier-unit ch-center">
-                      <div class="ch-chain grand-chain"></div>
-                      <img src="./assets/chandelier.png" alt="Grand Crystal Chandelier" class="chandelier-art-img grand-art" />
-                      <div class="ch-glow-pulse grand-glow"></div>
+
+                    <div class="chandelier-item c-center">
+                      <div class="chandelier-chain grand"></div>
+                      <div class="chandelier-crown grand"></div>
+                      <div class="chandelier-arms grand">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                        <span class="crystal-bulb b4"></span>
+                        <span class="crystal-bulb b5"></span>
+                      </div>
+                      <div class="crystal-pendants grand"></div>
+                      <div class="chandelier-flare-glow grand"></div>
                     </div>
-                    <div class="chandelier-unit ch-right">
-                      <div class="ch-chain"></div>
-                      <img src="./assets/chandelier.png" alt="Crystal Chandelier" class="chandelier-art-img" />
-                      <div class="ch-glow-pulse"></div>
+
+                    <div class="chandelier-item c-right">
+                      <div class="chandelier-chain"></div>
+                      <div class="chandelier-crown"></div>
+                      <div class="chandelier-arms">
+                        <span class="crystal-bulb b1"></span>
+                        <span class="crystal-bulb b2"></span>
+                        <span class="crystal-bulb b3"></span>
+                      </div>
+                      <div class="crystal-pendants"></div>
+                      <div class="chandelier-flare-glow"></div>
                     </div>
                   </div>
+
                   <!-- Cascading Sparkle Beams -->
                   <div class="chandelier-sparkles">
                     <span class="sparkle-crystal sc1">✦</span>
@@ -474,9 +527,10 @@
             </div>
           </div>
 
-          <!-- Footer with Replay -->
+          <!-- Footer with Mini Mandala & Replay -->
           <footer class="floral-footer-section animate-element" style="--delay: 0.9s;">
             <div class="footer-content-wrap">
+              <img src="./assets/mandala.png" alt="" class="footer-mini-mandala" />
               <p class="footer-blessing-script">With Love &amp; Blessings</p>
               <p class="footer-families-note">Jessica &amp; Dwij</p>
               

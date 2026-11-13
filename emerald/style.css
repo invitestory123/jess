@@ -392,7 +392,7 @@ html, body {
 }
 
 /* ==========================================================================
-   2. UNIFIED FLORAL BACKGROUND DESIGN (From flora folder, consistent throughout)
+   2. UNIFIED ROYAL PALACE DESIGN (Combined Gilded, Emerald & Rajmahal)
    ========================================================================== */
 
 .invitation-overlay {
@@ -404,7 +404,7 @@ html, body {
   opacity: 0;
   visibility: hidden;
   transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-  background: linear-gradient(180deg, rgba(8, 14, 11, 0.40) 0%, rgba(10, 20, 15, 0.70) 35%, rgba(6, 14, 10, 0.88) 100%);
+  background: linear-gradient(180deg, rgba(8, 14, 11, 0.40) 0%, rgba(10, 20, 15, 0.68) 35%, rgba(4, 12, 8, 0.88) 100%);
   backdrop-filter: blur(3px);
   -webkit-backdrop-filter: blur(3px);
 }
@@ -412,6 +412,103 @@ html, body {
 .invitation-overlay.revealed {
   opacity: 1;
   visibility: visible;
+}
+
+/* Rajmahal Layer 1: Palace Golden Aurora Glows */
+.rajmahal-aurora {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.35;
+  animation: auroraDrift 14s ease-in-out infinite alternate;
+}
+
+.blob-gold {
+  top: 10%;
+  left: 20%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(229, 193, 88, 0.5) 0%, transparent 70%);
+}
+
+.blob-amber {
+  top: 45%;
+  right: 15%;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(212, 163, 56, 0.4) 0%, transparent 70%);
+  animation-delay: -6s;
+}
+
+@keyframes auroraDrift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(25px, -20px) scale(1.15); }
+  100% { transform: translate(-20px, 25px) scale(0.9); }
+}
+
+/* Rajmahal Layer 2: Slowly Rotating Sacred Mandala Behind Hero */
+.rajmahal-rotating-mandala {
+  position: absolute;
+  top: 195px;
+  left: 50%;
+  width: 440px;
+  max-width: 130vw;
+  height: auto;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+  animation: spinSlow 80s linear infinite;
+  transform-origin: center center;
+}
+
+@keyframes spinSlow {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Rajmahal Layer 3: Floating Marigold & Rose Petals Rain */
+.rajmahal-petals-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.marigold-petal {
+  position: absolute;
+  top: -20px;
+  border-radius: 60% 40% 55% 45%;
+  box-shadow: 0 0 6px rgba(230, 140, 40, 0.45);
+  animation-name: petalFall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marigold-petal-inner {
+  width: 100%;
+  height: 100%;
+  animation: swayPetal 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes petalFall {
+  0% { transform: translateY(-5vh) rotate(0deg); opacity: 0; }
+  8% { opacity: 0.95; }
+  92% { opacity: 0.85; }
+  100% { transform: translateY(110vh) rotate(340deg); opacity: 0; }
+}
+
+@keyframes swayPetal {
+  0%, 100% { transform: translateX(-14px) rotate(-8deg); }
+  50% { transform: translateX(14px) rotate(8deg); }
 }
 
 /* Confetti Particle Canvas */
@@ -458,18 +555,67 @@ html, body {
 }
 
 /* ==========================================================================
-   3. WEDDING STORY – OPENING TEXT (Centered & Elegant)
+   3. WEDDING STORY – OPENING TEXT (With Flanking Diyas & Clean Mahaganapati)
    ========================================================================== */
 
 .wedding-story-block {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   width: 100%;
-  max-width: 380px;
   margin-top: 10px;
   margin-bottom: 24px;
+}
+
+/* Flanking Auspicious Diyas with Flickering Flames */
+.rajmahal-diya {
+  position: absolute;
+  top: 14px;
+  z-index: 5;
+  pointer-events: none;
+  animation: diyaSway 5s ease-in-out infinite;
+}
+
+.rajmahal-diya.diya-left {
+  left: 6px;
+}
+
+.rajmahal-diya.diya-right {
+  right: 6px;
+  animation-delay: -2.5s;
+}
+
+.diya-img {
+  position: relative;
+  width: 52px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.7));
+}
+
+.diya-flame-glow {
+  position: absolute;
+  left: 50%;
+  top: 18%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 190, 80, 0.9), rgba(255, 120, 30, 0.35) 60%, transparent 75%);
+  filter: blur(10px);
+  animation: flameFlickerDiya 1.8s ease-in-out infinite;
+}
+
+@keyframes flameFlickerDiya {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  25% { transform: translate(-50%, -50%) scale(1.12, 1.2); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(0.92, 0.9); opacity: 0.7; }
+  75% { transform: translate(-50%, -50%) scale(1.06, 1.1); opacity: 0.95; }
+}
+
+@keyframes diyaSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
 }
 
 .ganesh-shloka-heading {
@@ -484,32 +630,19 @@ html, body {
 
 .ganesha-emblem-wrap {
   position: relative;
-  width: 88px;
-  height: 88px;
+  width: 90px;
+  height: 90px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 16px;
 }
 
-.ganesha-halo-glow {
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(229, 193, 88, 0.45) 0%, rgba(229, 193, 88, 0.15) 55%, transparent 75%);
-  animation: ganeshaHaloPulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes ganeshaHaloPulse {
-  0% { transform: scale(0.94); opacity: 0.7; }
-  100% { transform: scale(1.08); opacity: 1; }
-}
-
 .ganesha-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7));
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 12px rgba(229, 193, 88, 0.35));
   position: relative;
   z-index: 2;
 }
@@ -559,16 +692,20 @@ html, body {
   margin: 0 auto;
 }
 
-/* 4. SCROLLING TEXT (Marquee Banner - Colorado Springs, CO) */
+/* 4. SCROLLING TEXT (Full mobile screen width marquee ribbon - Colorado Springs, CO) */
 .scrolling-marquee-strip {
-  width: 100%;
-  max-width: 370px;
+  width: calc(100% + 36px);
+  margin-left: -18px;
+  margin-right: -18px;
+  max-width: none;
   overflow: hidden;
-  background: rgba(4, 20, 15, 0.85);
-  border-top: 1px solid rgba(229, 193, 88, 0.35);
-  border-bottom: 1px solid rgba(229, 193, 88, 0.35);
-  padding: 6px 0;
-  margin: 16px 0 14px;
+  background: linear-gradient(90deg, rgba(2, 12, 8, 0.95) 0%, rgba(13, 46, 35, 0.95) 50%, rgba(2, 12, 8, 0.95) 100%);
+  border-top: 1px solid rgba(229, 193, 88, 0.45);
+  border-bottom: 1px solid rgba(229, 193, 88, 0.45);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 244, 208, 0.2);
+  padding: 8px 0;
+  margin-top: 18px;
+  margin-bottom: 16px;
 }
 
 .marquee-track {
@@ -1204,86 +1341,121 @@ html, body {
   100% { transform: translateY(420px) rotate(320deg); opacity: 0; }
 }
 
-/* 10. Reception: Hanging Crystal Chandeliers from Reference Photo */
-.chandeliers-hanging-group {
+/* 10. Reception: Gilded Hall Cascading Crystal Chandeliers & Gilded Palace Arch */
+.gilded-arch-backdrop {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 0 10px;
+  right: 0;
+  height: 120px;
+  pointer-events: none;
+  opacity: 0.85;
 }
 
-.chandelier-unit {
+.gilded-arch-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.chandeliers-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 0 14px;
+  z-index: 5;
+}
+
+.chandelier-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
-  animation: chSway 4s ease-in-out infinite alternate;
+  animation: chandelierSway 4.8s ease-in-out infinite alternate;
   transform-origin: top center;
 }
 
-.ch-center {
-  animation-duration: 5s;
-  animation-delay: -1.5s;
+.chandelier-item.c-left { animation-delay: 0.6s; }
+.chandelier-item.c-center { animation-delay: 0s; transform: scale(1.15); }
+.chandelier-item.c-right { animation-delay: 1.2s; }
+
+@keyframes chandelierSway {
+  0% { transform: rotate(-2.5deg); }
+  100% { transform: rotate(2.5deg); }
 }
 
-.ch-right {
-  animation-duration: 4.5s;
-  animation-delay: -0.8s;
-}
-
-@keyframes chSway {
-  0% { transform: rotate(-3deg); }
-  100% { transform: rotate(3deg); }
-}
-
-.ch-chain {
-  width: 1px;
+.chandelier-chain {
+  width: 1.5px;
   height: 24px;
-  background: linear-gradient(180deg, rgba(229, 193, 88, 0.9), rgba(229, 193, 88, 0.3));
+  background: linear-gradient(180deg, #f7e096, #b88e28);
+}
+.chandelier-chain.grand { height: 32px; }
+
+.chandelier-crown {
+  width: 32px;
+  height: 9px;
+  background: linear-gradient(90deg, #b88e28, #fff4d0, #b88e28);
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.7);
+}
+.chandelier-crown.grand { width: 44px; height: 11px; }
+
+.chandelier-arms {
+  display: flex;
+  gap: 6px;
+  margin-top: 3px;
+}
+.chandelier-arms.grand { gap: 5px; }
+
+.crystal-bulb {
+  width: 5px;
+  height: 9px;
+  background: #ffffff;
+  border-radius: 50% 50% 30% 30%;
+  box-shadow: 0 0 12px #fff4a3, 0 0 20px rgba(229, 193, 88, 0.85);
+  animation: crystalSparkle 2.2s ease-in-out infinite alternate;
 }
 
-.grand-chain {
-  height: 12px;
+.crystal-pendants {
+  width: 22px;
+  height: 18px;
+  border-left: 2px solid rgba(255, 244, 208, 0.7);
+  border-right: 2px solid rgba(255, 244, 208, 0.7);
+  border-bottom: 2px solid rgba(255, 244, 208, 0.7);
+  border-radius: 0 0 10px 10px;
+  margin-top: 2px;
 }
+.crystal-pendants.grand { width: 30px; height: 24px; }
 
-.chandelier-art-img {
-  width: 58px;
-  height: auto;
-  filter: drop-shadow(0 4px 12px rgba(229, 193, 88, 0.5));
-}
-
-.grand-art {
-  width: 78px;
-}
-
-.ch-glow-pulse {
+.chandelier-flare-glow {
   position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 60px;
-  height: 60px;
+  top: 24px;
+  width: 76px;
+  height: 76px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 238, 170, 0.5) 0%, transparent 70%);
-  animation: glowPulse 2.8s ease-in-out infinite alternate;
+  background: radial-gradient(circle, rgba(255, 240, 180, 0.45) 0%, transparent 65%);
+  animation: flarePulse 2.8s ease-in-out infinite alternate;
+}
+.chandelier-flare-glow.grand { width: 94px; height: 94px; }
+
+@keyframes crystalSparkle {
+  0% { opacity: 0.7; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 8px #ffffff); }
 }
 
-.grand-glow {
-  width: 80px;
-  height: 80px;
-}
-
-@keyframes glowPulse {
-  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
-  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+@keyframes flarePulse {
+  0% { transform: scale(0.85); opacity: 0.5; }
+  100% { transform: scale(1.25); opacity: 0.9; }
 }
 
 .chandelier-sparkles {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 }
 
 .sparkle-crystal {
@@ -1595,6 +1767,16 @@ html, body {
   text-align: center;
   padding: 16px 0 24px;
   width: 100%;
+}
+
+.footer-mini-mandala {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 10px;
+  opacity: 0.38;
+  filter: drop-shadow(0 0 8px rgba(229, 193, 88, 0.4));
+  animation: spinSlow 50s linear infinite;
+  display: block;
 }
 
 .footer-blessing-script {
