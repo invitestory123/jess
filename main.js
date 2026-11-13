@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const tapOverlay = document.getElementById('tapOverlay');
   const invitationOverlay = document.getElementById('invitationOverlay');
   const contentScrollable = document.getElementById('contentScrollable');
+  const lanternsContainer = document.getElementById('lanternsContainer');
   
   // Controls & Buttons
   const audioToggleBtn = document.getElementById('audioToggleBtn');
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isAudioMuted || !audioCtx) return;
     try {
       const now = audioCtx.currentTime;
-      // Soft temple bell / chime frequency chord
+      // Soft temple chime frequency chord
       const freqs = [528, 660, 792, 1056];
       freqs.forEach((freq, i) => {
         const osc = audioCtx.createOscillator();
@@ -85,12 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 1. Floating Sky Lanterns 3D Depth Engine ---
+  // --- 1. Floating Sky Lanterns Engine ---
   function initFloatingLanterns() {
-    const container = document.getElementById('lanternsContainer');
-    if (!container) return;
+    if (!lanternsContainer) return;
 
-    container.innerHTML = '';
+    lanternsContainer.innerHTML = '';
     const lanternCount = 20;
     const depthTiers = ['depth-far', 'depth-far', 'depth-mid', 'depth-mid', 'depth-near'];
 
@@ -99,10 +99,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const depthClass = depthTiers[Math.floor(Math.random() * depthTiers.length)];
       lantern.className = `lantern-item ${depthClass}`;
 
-      const leftPos = (Math.random() * 90 + 5).toFixed(1);
-      const duration = (Math.random() * 12 + 14).toFixed(1);
-      const delay = (Math.random() * 16).toFixed(1);
-      const swayX = (Math.random() * 20 + 8).toFixed(0);
+      const leftPos = (Math.random() * 88 + 6).toFixed(1);
+      const duration = (Math.random() * 10 + 12).toFixed(1);
+      const delay = (Math.random() * 12).toFixed(1);
+      const swayX = (Math.random() * 18 + 6).toFixed(0);
       const rotDeg = (Math.random() * 6 - 3).toFixed(1);
 
       lantern.style.left = `${leftPos}%`;
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="lantern-tassel"></div>
       `;
 
-      container.appendChild(lantern);
+      lanternsContainer.appendChild(lantern);
     }
   }
 
@@ -135,81 +135,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- Helper: Reveal Invitation Content ---
-  function revealInvitationContent() {
-    freezeFinalFrame();
-    hasOpened = true;
-    isPlaying = false;
-
-    if (invitationOverlay) {
-      invitationOverlay.classList.remove('hidden');
-      void invitationOverlay.offsetWidth;
-      invitationOverlay.classList.add('revealed');
-    }
-
-    playBackgroundMusic();
-    playAuspiciousChime();
-    initRajmahalPetals();
-
-    setTimeout(() => {
-      initScratchCanvas();
-    }, 200);
-  }
-
-  // --- Rajmahal Floating Marigold Petals Engine ---
-  function initRajmahalPetals() {
-    const petalsContainer = document.getElementById('rajmahalPetals');
-    if (!petalsContainer) return;
-    petalsContainer.innerHTML = '';
-    const petalCount = 16;
-    for (let i = 0; i < petalCount; i++) {
-      const petal = document.createElement('div');
-      petal.className = 'marigold-petal';
-      const left = (Math.random() * 94 + 3).toFixed(1);
-      const size = (Math.random() * 10 + 10).toFixed(0);
-      const fallDuration = (Math.random() * 8 + 9).toFixed(1);
-      const swayDuration = (Math.random() * 2 + 2.2).toFixed(1);
-      const delay = (-(Math.random() * 15)).toFixed(1);
-      const isGolden = Math.random() > 0.5;
-
-      petal.style.left = `${left}%`;
-      petal.style.animationDuration = `${fallDuration}s`;
-      petal.style.animationDelay = `${delay}s`;
-
-      const inner = document.createElement('div');
-      inner.className = 'marigold-petal-inner';
-      inner.style.width = `${size}px`;
-      inner.style.height = `${(size * 1.35).toFixed(0)}px`;
-      inner.style.borderRadius = '60% 40% 55% 45%';
-      inner.style.background = isGolden 
-        ? 'linear-gradient(160deg, #ffd166 0%, #d9822b 75%)'
-        : 'linear-gradient(160deg, #f7b733 0%, #e06a1b 75%)';
-      inner.style.boxShadow = '0 0 6px rgba(230, 140, 40, 0.45)';
-      inner.style.animationDuration = `${swayDuration}s`;
-
-      petal.appendChild(inner);
-      petalsContainer.appendChild(petal);
-    }
-  }
-
-  // --- Door Opening Interaction Handler ---
+  // --- Door Opening Interaction Handler (Lanterns Rise Up + Video Opens) ---
   function openDoorInvitation() {
     if (isPlaying || hasOpened) return;
     
     isPlaying = true;
     initAudioContext();
     playBackgroundMusic();
+    playAuspiciousChime();
 
     if (tapOverlay) tapOverlay.classList.add('fade-out');
     if (posterImg) posterImg.classList.add('fade-out');
     if (staticCanvas) staticCanvas.classList.remove('active');
+
+    // Lanterns slowly rise up the screen as the door opens
+    if (lanternsContainer) {
+      lanternsContainer.classList.add('rising');
+    }
     
     if (video) {
       video.currentTime = 0;
       const playPromise = video.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Fallback if browser blocked video autoplay
+          // Autoplay fallback
           revealInvitationContent();
         });
       }
@@ -237,6 +186,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- Helper: Reveal Invitation Content ---
+  function revealInvitationContent() {
+    freezeFinalFrame();
+    hasOpened = true;
+    isPlaying = false;
+
+    if (invitationOverlay) {
+      invitationOverlay.classList.remove('hidden');
+      void invitationOverlay.offsetWidth;
+      invitationOverlay.classList.add('revealed');
+    }
+
+    playBackgroundMusic();
+
+    setTimeout(() => {
+      initScratchCanvas();
+    }, 250);
+  }
+
   // --- Replay Opening Experience ---
   function resetAndReplay() {
     hasOpened = false;
@@ -258,14 +226,14 @@ document.addEventListener('DOMContentLoaded', () => {
     if (posterImg) posterImg.classList.remove('fade-out');
     if (tapOverlay) tapOverlay.classList.remove('fade-out');
 
+    if (lanternsContainer) {
+      lanternsContainer.classList.remove('rising');
+      initFloatingLanterns();
+    }
+
     if (video) {
       video.pause();
       video.currentTime = 0;
-    }
-
-    if (bgMusic && !isAudioMuted) {
-      bgMusic.currentTime = 0;
-      playBackgroundMusic();
     }
 
     if (scratchCanvas) {
@@ -274,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scratchCanvas.style.opacity = '1';
       scratchCanvas.style.pointerEvents = 'auto';
     }
+
     if (scratchHint) {
       scratchHint.classList.remove('hidden', 'fade-out');
       scratchHint.style.display = 'flex';
@@ -281,9 +250,10 @@ document.addEventListener('DOMContentLoaded', () => {
       scratchHint.style.opacity = '1';
       scratchHint.style.pointerEvents = 'none';
     }
+
     if (quickRevealBtn) quickRevealBtn.style.display = 'block';
 
-    initFloatingLanterns();
+    switchChapter(0);
   }
 
   if (replayBtn) replayBtn.addEventListener('click', resetAndReplay);
@@ -320,7 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, { passive: true });
 
-  // --- 3. HTML5 Scratch Card Engine (May 7 & 8, 2027) ---
+  // --- 5. HTML5 Scratch Card Engine (May 7 & 8, 2027) ---
   const scratchCanvas = document.getElementById('scratchCanvas');
   const scratchHint = document.getElementById('scratchHint');
   const quickRevealBtn = document.getElementById('quickRevealBtn');
@@ -337,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!container) return;
     
     scratchCanvas.width = container.offsetWidth || 340;
-    scratchCanvas.height = container.offsetHeight || 152;
+    scratchCanvas.height = container.offsetHeight || 156;
     
     // Metallic Gold Foil Gradient
     const grad = scratchCtx.createLinearGradient(0, 0, scratchCanvas.width, scratchCanvas.height);
@@ -380,12 +350,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function scratchAt(x, y) {
     if (!scratchCtx || hasScratchedCleared) return;
     
-    // Hide hint badge immediately on first interaction
     hideScratchHint();
 
     scratchCtx.globalCompositeOperation = 'destination-out';
     scratchCtx.beginPath();
-    scratchCtx.arc(x, y, 24, 0, Math.PI * 2);
+    scratchCtx.arc(x, y, 26, 0, Math.PI * 2);
     scratchCtx.fill();
     
     dragCount++;
@@ -431,7 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
         revealDateFully();
       }
     } catch (e) {
-      // Cross-origin fallback
+      // Fallback
     }
   }
 
@@ -456,28 +425,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (scratchCanvas) {
-    ['mousedown', 'touchstart'].forEach(evt => {
-      scratchCanvas.addEventListener(evt, (e) => {
-        isScratching = true;
-        hideScratchHint();
-        const coords = getScratchCoords(e);
-        scratchAt(coords.x, coords.y);
-      }, { passive: true });
+    // Mouse events
+    scratchCanvas.addEventListener('mousedown', (e) => {
+      isScratching = true;
+      hideScratchHint();
+      const coords = getScratchCoords(e);
+      scratchAt(coords.x, coords.y);
     });
 
-    ['mousemove', 'touchmove'].forEach(evt => {
-      scratchCanvas.addEventListener(evt, (e) => {
-        if (!isScratching) return;
-        hideScratchHint();
-        const coords = getScratchCoords(e);
-        scratchAt(coords.x, coords.y);
-      }, { passive: true });
+    scratchCanvas.addEventListener('mousemove', (e) => {
+      if (!isScratching) return;
+      hideScratchHint();
+      const coords = getScratchCoords(e);
+      scratchAt(coords.x, coords.y);
     });
 
-    ['mouseup', 'mouseleave', 'touchend'].forEach(evt => {
+    ['mouseup', 'mouseleave'].forEach(evt => {
       scratchCanvas.addEventListener(evt, () => {
         isScratching = false;
       });
+    });
+
+    // Touch events: Prevent screen scrolling and box moving while scratching!
+    scratchCanvas.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      isScratching = true;
+      hideScratchHint();
+      const coords = getScratchCoords(e);
+      scratchAt(coords.x, coords.y);
+    }, { passive: false });
+
+    scratchCanvas.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!isScratching) return;
+      hideScratchHint();
+      const coords = getScratchCoords(e);
+      scratchAt(coords.x, coords.y);
+    }, { passive: false });
+
+    ['touchend', 'touchcancel'].forEach(evt => {
+      scratchCanvas.addEventListener(evt, () => {
+        isScratching = false;
+      }, { passive: false });
     });
   }
 
@@ -552,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 4. Choose a Chapter Carousel Engine (Gilded Template) ---
+  // --- 6. Three Chapters Carousel Engine (Sangeet, Wedding, Reception) ---
   const chapterTabs = document.querySelectorAll('.chapter-tab-btn');
   const chapterCards = document.querySelectorAll('.chapter-card');
   const chapterDots = document.querySelectorAll('.chapter-dots .dot');
@@ -561,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chapterStage = document.getElementById('chapterStage');
   
   let currentChapterIndex = 0;
-  const totalChapters = chapterCards.length;
+  const totalChapters = chapterCards.length; // 3 chapters
 
   function switchChapter(newIndex) {
     if (newIndex < 0) newIndex = totalChapters - 1;
@@ -639,14 +630,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // --- 5. Live Countdown Timer Engine (May 7, 2027) ---
+  // --- 12. Live Countdown Timer Engine (May 7, 2027 Hotel Polaris) ---
   const cdDays = document.getElementById('cdDays');
   const cdHours = document.getElementById('cdHours');
   const cdMins = document.getElementById('cdMins');
   const cdSecs = document.getElementById('cdSecs');
   
-  // Wedding Date Target: May 7, 2027 at 10:00 AM IST (+05:30)
-  const targetWeddingDate = new Date('2027-05-07T10:00:00+05:30').getTime();
+  // Wedding Date Target: May 7, 2027 at 18:00 (6:00 PM) MST (UTC-6)
+  const targetWeddingDate = new Date('2027-05-07T18:00:00-06:00').getTime();
 
   function updateCountdown() {
     if (!cdDays || !cdHours || !cdMins || !cdSecs) return;
@@ -678,10 +669,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Add to Calendar Engine (.ics download & Google Calendar link) ---
   function handleAddToCalendar() {
-    const title = encodeURIComponent("Jessica & Dwij's Royal Wedding Celebrations");
-    const details = encodeURIComponent("Join us to celebrate the royal wedding of Jessica & Dwij. Manglik Prasango, Sangeet, Sacred Vivah & Grand Reception.\nVenue: The Grand Emerald Palace & Royal Pavilions, Udaipur.");
-    const location = encodeURIComponent("The Grand Emerald Palace & Royal Pavilions, Lake Pichola, Udaipur, Rajasthan");
-    const dates = "20270507T043000Z/20270508T183000Z";
+    const title = encodeURIComponent("Jessica & Dwij's Wedding Celebrations");
+    const details = encodeURIComponent("Together with their families, Jessica & Dwij invite you to celebrate their wedding.\nSangeet: Friday May 7th, 6:00 PM\nWedding Ceremony: Saturday May 8th, 9:30 AM\nReception: Saturday May 8th, 6:00 PM\nVenue: Hotel Polaris, Colorado Springs, CO.");
+    const location = encodeURIComponent("Hotel Polaris, 8989 North Gate Blvd, Colorado Springs, CO 80921");
+    const dates = "20270507T180000/20270509T000000";
     
     const googleCalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
 
@@ -695,11 +686,11 @@ document.addEventListener('DOMContentLoaded', () => {
       "BEGIN:VEVENT",
       `UID:${Date.now()}@jessica-dwij-wedding`,
       "DTSTAMP:20261103T000000Z",
-      "DTSTART:20270507T043000Z",
-      "DTEND:20270508T183000Z",
+      "DTSTART:20270507T180000",
+      "DTEND:20270509T000000",
       "SUMMARY:Jessica & Dwij Wedding Celebrations",
-      "DESCRIPTION:Wedding celebrations of Jessica & Dwij across May 7 & 8, 2027 in Udaipur.",
-      "LOCATION:The Grand Emerald Palace & Royal Pavilions, Udaipur, Rajasthan",
+      "DESCRIPTION:Wedding celebrations of Jessica & Dwij across May 7 & 8, 2027 at Hotel Polaris, Colorado Springs, CO.",
+      "LOCATION:Hotel Polaris, 8989 North Gate Blvd, Colorado Springs, CO 80921",
       "STATUS:CONFIRMED",
       "END:VEVENT",
       "END:VCALENDAR"

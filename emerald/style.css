@@ -1,36 +1,36 @@
 /* ==========================================================================
-   PREMIUM CINEMATIC DIGITAL WEDDING INVITATION — JESSICA & DWIJ
-   COMBINED MASTER: EMERALD ARCH COVER + FULL RAJMAHAL PALACE OPENING THEME
+   PREMIUM CINEMATIC WEDDING INVITATION — JESSICA & DWIJ
+   FLORAL ARCHITECTURAL THEME
    ========================================================================== */
 
 :root {
-  /* Rajmahal Royal Palace Palette */
-  --color-rajmahal-bg: #160408;
-  --color-rajmahal-wine: #22050c;
-  --color-rajmahal-glass: rgba(26, 6, 12, 0.82);
-  --color-rajmahal-border: rgba(217, 164, 65, 0.38);
-  --color-gold-light: #F6E2AE;
-  --color-gold: #D9A441;
-  --color-gold-dark: #A97C2A;
-  --color-gold-rich: #D9A441;
-  --color-gold-gradient: linear-gradient(115deg, #F6E2AE 0%, #D9A441 40%, #F9ECC8 58%, #B9832E 85%, #F2D894 100%);
-  --color-gold-btn-gradient: linear-gradient(100deg, #A97C2A 0%, #E9C879 45%, #F7E9C6 60%, #C9973E 100%);
-  --color-text-bright: #FBF9F5;
-  --color-text-ivory: #F3E7D3;
-  --color-text-muted: #D1C7B7;
-  --shadow-gold: 0 10px 30px rgba(217, 164, 65, 0.28);
-  --shadow-deep: 0 20px 50px rgba(0, 0, 0, 0.85);
+  /* Color System */
+  --color-emerald-deep: #020c08;
+  --color-emerald-dark: #061912;
+  --color-emerald-mid: #0d2e23;
+  --color-emerald-card: rgba(6, 24, 17, 0.84);
+  --color-emerald-border: rgba(229, 193, 88, 0.32);
   
+  --color-gold: #E5C158;
+  --color-gold-light: #FFF4D0;
+  --color-gold-dark: #A67C1E;
+  --color-gold-rich: #D4A338;
+  --color-gold-glow: rgba(229, 193, 88, 0.4);
+
+  --color-text-bright: #FFFFFF;
+  --color-text-subtle: #EDE0C8;
+  --color-text-muted: rgba(240, 225, 200, 0.75);
+
   /* Typography */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-heading: 'Cinzel', serif;
+  --font-decorative: 'Cinzel Decorative', serif;
   --font-script: 'Great Vibes', cursive;
-  --font-heading: 'Cinzel Decorative', 'Cinzel', serif;
-  --font-serif: 'Cinzel', serif;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', 'Jost', sans-serif;
-  --ease-silk: cubic-bezier(0.22, 0.61, 0.24, 1);
 }
 
-* {
+/* Base Resets & Viewport Lock */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -40,155 +40,144 @@
 html, body {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  background-color: var(--color-rajmahal-bg);
-  font-family: var(--font-display);
-  color: var(--color-text-ivory);
+  overflow-x: hidden;
+  background-color: var(--color-emerald-deep);
+  color: var(--color-text-subtle);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Ambient Desktop Background --- */
+/* Ambient Desktop Backdrop */
 .ambient-backdrop {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 50% 40%, #2a0812 0%, #160408 60%, #0c0205 100%);
+  background: radial-gradient(circle at 50% 30%, #0d3326 0%, #04140e 65%, #010705 100%);
   z-index: 0;
-  opacity: 0.98;
+  pointer-events: none;
 }
 
-.ambient-backdrop::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(217, 164, 65, 0.12) 0%, transparent 65%);
-  animation: ambientPulse 8s ease-in-out infinite alternate;
-}
-
-@keyframes ambientPulse {
-  0% { opacity: 0.4; transform: scale(1); }
-  100% { opacity: 0.85; transform: scale(1.1); }
-}
-
-/* --- Top Floating Controls --- */
+/* Top Floating Controls */
 .top-controls {
   position: fixed;
-  top: 16px;
+  top: 14px;
   left: 0;
   right: 0;
   z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 24px;
-  max-width: 900px;
+  max-width: 440px;
   margin: 0 auto;
-  pointer-events: none;
-}
-
-.top-controls > * {
+  padding: 0 16px;
   pointer-events: auto;
 }
 
 .brand-tag {
-  font-family: var(--font-serif);
-  font-size: 0.82rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   letter-spacing: 2px;
-  text-transform: uppercase;
   color: var(--color-gold-light);
-  background: rgba(22, 4, 8, 0.85);
+  background: rgba(4, 20, 15, 0.75);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-rajmahal-border);
-  padding: 8px 16px;
-  border-radius: 30px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
-.sparkle {
-  color: var(--color-gold-light);
-  animation: spinSparkle 4s linear infinite;
-}
-
-@keyframes spinSparkle {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+.brand-tag .sparkle {
+  color: var(--color-gold);
+  font-size: 0.8rem;
 }
 
 .action-pills {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .glass-pill-btn {
-  background: rgba(26, 6, 12, 0.85);
+  background: rgba(4, 20, 15, 0.75);
   backdrop-filter: blur(12px);
-  border: 1px solid var(--color-rajmahal-border);
-  color: var(--color-text-bright);
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  color: var(--color-gold-light);
   font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 500;
+  font-size: 0.72rem;
   letter-spacing: 1px;
-  padding: 8px 14px;
+  padding: 6px 12px;
   border-radius: 20px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.3s var(--ease-silk);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
 }
 
 .glass-pill-btn:hover {
-  background: rgba(217, 164, 65, 0.2);
+  background: rgba(229, 193, 88, 0.25);
   border-color: var(--color-gold);
-  transform: translateY(-2px);
-  color: var(--color-gold-light);
 }
 
 .glass-pill-btn.icon-only {
-  padding: 8px;
-  border-radius: 50%;
+  padding: 6px 8px;
 }
 
 .hidden {
   display: none !important;
 }
 
-/* --- Main Invitation Layout Wrapper (9:16 Aspect Ratio) --- */
+/* ==========================================================================
+   MAIN 9:16 VERTICAL INVITATION STAGE
+   ========================================================================== */
+
 .invitation-wrapper {
   position: relative;
-  z-index: 10;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 16px;
+  z-index: 1;
 }
 
 .invitation-card-container {
   position: relative;
   width: 100%;
-  max-width: 450px;
+  max-width: 440px;
   height: 100%;
-  max-height: 880px;
-  aspect-ratio: 9 / 16;
-  border-radius: 24px;
+  max-height: 940px;
   overflow: hidden;
-  background: #000;
-  box-shadow: var(--shadow-deep), 0 0 50px rgba(217, 164, 65, 0.22);
-  border: 1px solid rgba(217, 164, 65, 0.4);
+  background-color: var(--color-emerald-deep);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 24px rgba(229, 193, 88, 0.15);
 }
 
-/* --- 1. Media Stage: Emerald Arch with Bougainvillea --- */
+@media (min-width: 480px) {
+  .invitation-card-container {
+    height: 94vh;
+    border-radius: 24px;
+    border: 1px solid var(--color-emerald-border);
+  }
+}
+
+/* ==========================================================================
+   1. MEDIA STAGE: EMERALD ARCH DOOR WITH BOUGAINVILLEA & LANTERNS
+   ========================================================================== */
+
 .media-stage {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 2;
   overflow: hidden;
-  background-color: #050507;
+  background-color: #030d09;
 }
 
 .door-media {
@@ -197,43 +186,42 @@ html, body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
-  transition: opacity 0.5s ease;
+  object-position: center center;
 }
 
 .poster-image {
-  z-index: 2;
+  z-index: 1;
   opacity: 1;
+  transition: opacity 0.5s ease;
 }
 
 .poster-image.fade-out {
   opacity: 0;
-  pointer-events: none;
 }
 
 .video-player {
-  z-index: 1;
+  z-index: 2;
 }
 
 .static-canvas {
   z-index: 3;
   opacity: 0;
-  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .static-canvas.active {
   opacity: 1;
 }
 
-/* Light Floating Dust Particles */
+/* Ambient Dust Particles */
 .light-dust-particles {
   position: absolute;
   inset: 0;
-  z-index: 4;
-  pointer-events: none;
   background-image: radial-gradient(rgba(255, 244, 208, 0.15) 1px, transparent 1px);
   background-size: 28px 28px;
-  opacity: 0.45;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 4;
   animation: floatDust 20s linear infinite;
 }
 
@@ -242,96 +230,7 @@ html, body {
   100% { background-position: 100px 300px; }
 }
 
-/* Floating Sky Lanterns 3D Depth Overlay */
-.floating-lanterns-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 5;
-  pointer-events: none;
-  overflow: hidden;
-  opacity: 1;
-}
-
-.lantern-item {
-  position: absolute;
-  top: 105%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  pointer-events: none;
-  will-change: transform, opacity;
-  animation: floatUpAndSway linear infinite;
-}
-
-.lantern-paper {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  border-radius: 45% 45% 35% 35% / 40% 40% 50% 50%;
-  background: radial-gradient(circle at 50% 65%, #FFFCE8 0%, #FFC857 35%, #E58E1B 70%, #994A00 100%);
-  border: 1px solid rgba(229, 193, 88, 0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 0 20px rgba(255, 180, 50, 0.8), inset 0 0 15px rgba(255, 240, 180, 0.6);
-}
-
-.lantern-paper::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  width: 70%;
-  height: 3px;
-  background: #D4A338;
-  border-radius: 2px;
-}
-
-.lantern-paper::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  width: 75%;
-  height: 3px;
-  background: #D4A338;
-  border-radius: 2px;
-}
-
-.lantern-core-flame {
-  width: 35%;
-  height: 45%;
-  background: radial-gradient(circle, #FFFFFF 0%, #FFF4A3 40%, #FF9900 100%);
-  border-radius: 50% 50% 40% 40%;
-  box-shadow: 0 0 12px #FFA800, 0 0 20px #FFCC00;
-  animation: flameFlicker 1.5s ease-in-out infinite alternate;
-}
-
-.lantern-tassel {
-  width: 2px;
-  height: 10px;
-  background: linear-gradient(180deg, #E5C158 0%, transparent 100%);
-  margin-top: 1px;
-}
-
-.lantern-item.depth-far { width: 14px; height: 20px; filter: blur(3px); opacity: 0.45; z-index: 1; }
-.lantern-item.depth-mid { width: 24px; height: 34px; filter: blur(1px); opacity: 0.8; z-index: 2; }
-.lantern-item.depth-near { width: 36px; height: 50px; filter: blur(0px); opacity: 0.95; z-index: 3; }
-
-@keyframes floatUpAndSway {
-  0% { transform: translateY(0) translateX(0) rotate(0deg); }
-  25% { transform: translateY(-30vh) translateX(var(--sway-x, 15px)) rotate(var(--rot-deg, 3deg)); }
-  50% { transform: translateY(-60vh) translateX(calc(var(--sway-x, 15px) * -0.8)) rotate(calc(var(--rot-deg, 3deg) * -1)); }
-  75% { transform: translateY(-90vh) translateX(calc(var(--sway-x, 15px) * 0.6)) rotate(calc(var(--rot-deg, 3deg) * 0.7)); }
-  100% { transform: translateY(-125vh) translateX(0) rotate(0deg); }
-}
-
-@keyframes flameFlicker {
-  0% { transform: scale(0.85); opacity: 0.8; }
-  100% { transform: scale(1.15); opacity: 1; }
-}
-
-/* --- Tap-To-Open Overlay --- */
+/* Tap to Open Prompt Overlay */
 .tap-to-open-overlay {
   position: absolute;
   inset: 0;
@@ -340,26 +239,25 @@ html, body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 75px;
-  background: linear-gradient(0deg, rgba(22, 4, 8, 0.75) 0%, rgba(22, 4, 8, 0.2) 45%, transparent 100%);
+  padding-bottom: 70px;
+  background: linear-gradient(0deg, rgba(2, 12, 8, 0.85) 0%, rgba(2, 12, 8, 0.25) 45%, transparent 100%);
   cursor: pointer;
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.6s ease;
 }
 
 .tap-to-open-overlay.fade-out {
   opacity: 0;
-  transform: scale(1.05);
   pointer-events: none;
 }
 
 .keyhole-pulse {
   position: relative;
-  width: 66px;
-  height: 66px;
+  width: 58px;
+  height: 58px;
+  margin-bottom: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 16px;
 }
 
 .ring-pulse {
@@ -367,205 +265,153 @@ html, body {
   inset: 0;
   border-radius: 50%;
   border: 1.5px solid var(--color-gold);
-  animation: ringExpand 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  animation: rippleRing 2.2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
 }
 
-@keyframes ringExpand {
-  0% { transform: scale(0.7); opacity: 0.9; }
-  100% { transform: scale(1.5); opacity: 0; }
+@keyframes rippleRing {
+  0% { transform: scale(0.85); opacity: 0.9; }
+  100% { transform: scale(1.6); opacity: 0; }
 }
 
 .keyhole-icon {
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: rgba(26, 6, 12, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(8, 28, 21, 0.85);
+  backdrop-filter: blur(8px);
   border: 1px solid var(--color-gold);
-  color: var(--color-gold-light);
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 25px rgba(217, 164, 65, 0.5);
-  transition: transform 0.3s ease;
-}
-
-.tap-to-open-overlay:hover .keyhole-icon {
-  transform: scale(1.1);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
 }
 
 .tap-text {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  letter-spacing: 5px;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  letter-spacing: 4px;
   color: var(--color-gold-light);
-  text-shadow: 0 2px 10px rgba(0,0,0,0.85);
-  font-weight: 600;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
 }
 
 .sub-tap-text {
-  font-family: var(--font-display);
-  font-size: 0.92rem;
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
   font-style: italic;
   color: var(--color-text-muted);
-  margin-top: 5px;
-  letter-spacing: 1.5px;
+  margin-top: 4px;
 }
 
 /* ==========================================================================
-   2. FULL RAJMAHAL PALACE OPENING THEME (AFTER TAP TO OPEN)
+   RISING SKY LANTERNS (Lanterns slowly rise up during opening animation)
    ========================================================================== */
-.invitation-overlay.rajmahal-theme {
+
+.floating-lanterns-container {
   position: absolute;
   inset: 0;
-  z-index: 20;
-  background-color: var(--color-rajmahal-bg);
-  opacity: 0;
   pointer-events: none;
-  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 6;
+  overflow: hidden;
+}
+
+.lantern-item {
+  position: absolute;
+  bottom: -90px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  align-items: center;
+  animation-name: lanternFloatingGentle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+.lantern-paper {
+  position: relative;
+  width: 22px;
+  height: 32px;
+  background: radial-gradient(circle at 50% 65%, #FFFCE8 0%, #FFC857 35%, #E58E1B 70%, #994A00 100%);
+  border-radius: 5px 5px 3px 3px;
+  box-shadow: 0 0 16px rgba(255, 180, 50, 0.85), 0 0 32px rgba(255, 140, 20, 0.4);
+}
+
+.lantern-core-flame {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 9px;
+  background: #FFFFFF;
+  border-radius: 50% 50% 35% 35%;
+  box-shadow: 0 0 8px #FFF9D2, 0 0 14px #FF9900;
+  animation: flameFlicker 0.25s infinite alternate;
+}
+
+.lantern-tassel {
+  width: 1px;
+  height: 12px;
+  background: linear-gradient(180deg, #E5C158 0%, transparent 100%);
+}
+
+.depth-far { transform: scale(0.55); opacity: 0.55; }
+.depth-mid { transform: scale(0.85); opacity: 0.85; }
+.depth-near { transform: scale(1.15); opacity: 1; }
+
+@keyframes lanternFloatingGentle {
+  0% { transform: translateY(0) translateX(0) rotate(0deg); }
+  50% { transform: translateY(-40px) translateX(var(--sway-x)) rotate(var(--rot-deg)); }
+  100% { transform: translateY(-80px) translateX(0) rotate(0deg); }
+}
+
+@keyframes flameFlicker {
+  0% { transform: translateX(-50%) scale(0.92); opacity: 0.85; }
+  100% { transform: translateX(-50%) scale(1.08); opacity: 1; }
+}
+
+/* LANTERNS SLOWLY RISE UP THE SCREEN DURING OPENING ANIMATION */
+.floating-lanterns-container.rising .lantern-item {
+  animation: lanternsAscend 3.5s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+}
+
+@keyframes lanternsAscend {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.85;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   2. UNIFIED FLORAL BACKGROUND DESIGN (From flora folder, consistent throughout)
+   ========================================================================== */
+
+.invitation-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+  background: linear-gradient(180deg, rgba(8, 14, 11, 0.40) 0%, rgba(10, 20, 15, 0.70) 35%, rgba(6, 14, 10, 0.88) 100%);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 .invitation-overlay.revealed {
   opacity: 1;
-  pointer-events: auto;
-}
-
-/* Layer 1: Palace Texture & Royal Wine Vignette */
-.rajmahal-bg-texture {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.rajmahal-vignette-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(22, 4, 8, 0.72) 0%, rgba(22, 4, 8, 0.25) 45%, rgba(12, 2, 4, 0.94) 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Layer 2: Aurora Drifting Atmospheric Light Blobs */
-.rajmahal-aurora {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-  overflow: hidden;
-}
-
-.aurora-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-}
-
-.blob-gold {
-  left: -20%;
-  top: -10%;
-  width: 80vmax;
-  height: 80vmax;
-  background: radial-gradient(circle at center, rgba(217, 164, 65, 0.28), transparent 65%);
-  animation: drift-a 26s ease-in-out infinite;
-}
-
-.blob-crimson {
-  right: -25%;
-  top: 20%;
-  width: 75vmax;
-  height: 75vmax;
-  background: radial-gradient(circle at center, rgba(140, 24, 48, 0.42), transparent 65%);
-  animation: drift-b 32s ease-in-out infinite;
-}
-
-.blob-amber {
-  bottom: -20%;
-  left: 10%;
-  width: 70vmax;
-  height: 70vmax;
-  background: radial-gradient(circle at center, rgba(245, 158, 60, 0.18), transparent 65%);
-  animation: drift-c 38s ease-in-out infinite;
-}
-
-@keyframes drift-a {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(14vw, 10vh) scale(1.2); }
-  66% { transform: translate(-10vw, 16vh) scale(0.9); }
-}
-
-@keyframes drift-b {
-  0%, 100% { transform: translate(0, 0) scale(1.1); }
-  40% { transform: translate(-14vw, -8vh) scale(0.9); }
-  75% { transform: translate(10vw, -14vh) scale(1.15); }
-}
-
-@keyframes drift-c {
-  0%, 100% { transform: translate(0, 0) scale(0.95); }
-  50% { transform: translate(8vw, -12vh) scale(1.2); }
-}
-
-/* Layer 3: Slowly Rotating Sacred Mandala */
-.rajmahal-rotating-mandala {
-  position: absolute;
-  top: 240px;
-  left: 50%;
-  width: 480px;
-  max-width: 140vw;
-  height: auto;
-  opacity: 0.14;
-  pointer-events: none;
-  z-index: 1;
-  animation: spin-slow 80s linear infinite;
-}
-
-@keyframes spin-slow {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* Layer 4: Floating Marigold Petals Rain */
-.rajmahal-petals-container {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
-  overflow: hidden;
-}
-
-.marigold-petal {
-  position: absolute;
-  top: -20px;
-  border-radius: 60% 40% 55% 45%;
-  box-shadow: 0 0 6px rgba(230, 140, 40, 0.45);
-  animation-name: petalFall;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-
-.marigold-petal-inner {
-  width: 100%;
-  height: 100%;
-  animation: sway 2.8s ease-in-out infinite alternate;
-}
-
-@keyframes petalFall {
-  0% { transform: translateY(-5vh) rotate(0deg); opacity: 0; }
-  8% { opacity: 0.95; }
-  92% { opacity: 0.85; }
-  100% { transform: translateY(110vh) rotate(340deg); opacity: 0; }
-}
-
-@keyframes sway {
-  0%, 100% { transform: translateX(-14px) rotate(-8deg); }
-  50% { transform: translateX(14px) rotate(8deg); }
+  visibility: visible;
 }
 
 /* Confetti Particle Canvas */
@@ -578,340 +424,207 @@ html, body {
   z-index: 100;
 }
 
-/* Scrollable Content Container */
+/* Scrollable Container */
 .content-scrollable {
   position: relative;
-  z-index: 10;
-  flex: 1;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
   overflow-y: auto;
-  padding: 36px 18px 48px;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 58px 18px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content-scrollable::-webkit-scrollbar {
+  width: 4px;
+}
+
+.content-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(229, 193, 88, 0.35);
+  border-radius: 4px;
+}
+
+/* Common Floral Glass Card */
+.floral-card {
+  background: var(--color-emerald-card) !important;
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-emerald-border) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 16px rgba(217, 164, 65, 0.12) !important;
+  border-radius: 18px;
+}
+
+/* ==========================================================================
+   3. WEDDING STORY – OPENING TEXT (Centered & Elegant)
+   ========================================================================== */
+
+.wedding-story-block {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-gold) rgba(22, 4, 8, 0.6);
-  -webkit-overflow-scrolling: touch;
-}
-
-.content-scrollable::-webkit-scrollbar {
-  width: 5px;
-}
-
-.content-scrollable::-webkit-scrollbar-track {
-  background: rgba(22, 4, 8, 0.6);
-}
-
-.content-scrollable::-webkit-scrollbar-thumb {
-  background: var(--color-gold);
-  border-radius: 99px;
-}
-
-.animate-element {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
-  transition-delay: var(--delay, 0s);
   width: 100%;
+  max-width: 380px;
+  margin-top: 10px;
+  margin-bottom: 24px;
 }
 
-.invitation-overlay.revealed .animate-element {
-  opacity: 1;
-  transform: translateY(0);
+.ganesh-shloka-heading {
+  font-family: var(--font-heading);
+  font-size: 0.84rem;
+  letter-spacing: 4px;
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
 }
 
-/* --- Rajmahal Hero Block with Flanking Diyas --- */
-.rajmahal-hero-block {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 26px;
-  padding-top: 10px;
-}
-
-/* Flanking Auspicious Diya Lamps */
-.rajmahal-diya {
-  position: absolute;
-  top: 18px;
-  z-index: 5;
-  pointer-events: none;
-  animation: diya-sway 5s ease-in-out infinite;
-}
-
-.rajmahal-diya.diya-left {
-  left: 2px;
-}
-
-.rajmahal-diya.diya-right {
-  right: 2px;
-  animation-delay: -2.5s;
-}
-
-.diya-img {
-  position: relative;
-  width: 58px;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.65));
-}
-
-.diya-flame-glow {
-  position: absolute;
-  left: 50%;
-  top: 18%;
-  width: 48px;
-  height: 48px;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 70, 0.85), rgba(255, 120, 30, 0.3) 60%, transparent 75%);
-  filter: blur(12px);
-  animation: flame-flicker 1.8s ease-in-out infinite;
-  transform-origin: center bottom;
-}
-
-@keyframes flame-flicker {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); filter: brightness(1); opacity: 0.85; }
-  25% { transform: translate(-50%, -50%) scale(1.08, 1.15); filter: brightness(1.25); opacity: 1; }
-  50% { transform: translate(-50%, -50%) scale(0.95, 0.92); filter: brightness(0.9); opacity: 0.75; }
-  75% { transform: translate(-50%, -50%) scale(1.04, 1.08); filter: brightness(1.15); opacity: 0.95; }
-}
-
-@keyframes diya-sway {
-  0%, 100% { transform: rotate(-1.5deg); }
-  50% { transform: rotate(1.5deg); }
-}
-
-/* Lord Ganesha Emblem */
 .ganesha-emblem-wrap {
   position: relative;
-  width: 120px;
-  height: 120px;
+  width: 88px;
+  height: 88px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 
 .ganesha-halo-glow {
   position: absolute;
-  inset: 0;
+  inset: -8px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(217, 164, 65, 0.55), transparent 70%);
-  filter: blur(20px);
-  animation: glow-pulse 4s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(229, 193, 88, 0.45) 0%, rgba(229, 193, 88, 0.15) 55%, transparent 75%);
+  animation: ganeshaHaloPulse 3s ease-in-out infinite alternate;
 }
 
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.35; transform: scale(0.9); }
-  50% { opacity: 0.85; transform: scale(1.15); }
+@keyframes ganeshaHaloPulse {
+  0% { transform: scale(0.94); opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 1; }
 }
 
 .ganesha-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.7));
   position: relative;
-  width: 90px;
-  height: auto;
-  filter: drop-shadow(0 0 25px rgba(217, 164, 65, 0.55));
-  animation: float-soft 7s ease-in-out infinite;
+  z-index: 2;
 }
 
-@keyframes float-soft {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+.story-content-wrap {
+  width: 100%;
+  margin-bottom: 18px;
 }
 
-/* Sacred Shloka & Invocations */
-.sacred-invocation-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-  margin-bottom: 14px;
-}
-
-.sanskrit-shloka {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  letter-spacing: 2px;
-  color: #e8c874;
-  line-height: 1.35;
-  text-shadow: 0 0 10px rgba(217, 164, 65, 0.4);
-}
-
-.sanskrit-shloka.sub {
-  margin-bottom: 4px;
-}
-
-.sanskrit-verse {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
-  letter-spacing: 3px;
-  color: var(--color-gold-light);
-  font-weight: 600;
-  text-shadow: 0 0 15px rgba(217, 164, 65, 0.5);
-  margin-top: 2px;
-}
-
-.english-invocation {
+.story-intro-lead {
   font-family: var(--font-serif);
-  font-size: 0.72rem;
-  letter-spacing: 4px;
-  color: #d9b36a;
-  opacity: 0.9;
+  font-size: 1.15rem;
+  font-style: italic;
+  letter-spacing: 1px;
+  color: var(--color-gold-light);
+  margin-bottom: 6px;
 }
 
-.header-divider {
+.story-couple-names {
+  font-family: var(--font-heading);
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #FFFFFF;
+  margin: 6px 0 12px;
+  text-shadow: 0 0 16px rgba(229, 193, 88, 0.5), 0 2px 6px rgba(0,0,0,0.8);
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 12px;
-  margin-top: 8px;
-  width: 140px;
 }
 
-.header-divider .line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-}
-
-.om-symbol {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--color-gold);
-  line-height: 1;
-}
-
-.greeting-text {
-  font-family: var(--font-serif);
-  font-size: 0.64rem;
-  letter-spacing: 3px;
-  color: #f3e7d3;
-  font-weight: 500;
-  max-width: 320px;
-  line-height: 1.5;
-  margin-bottom: 12px;
-  opacity: 0.85;
-}
-
-/* Couple Names: Jessica & Dwij (Great Vibes script + gold shimmer) */
-.couple-names-block {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 6px 0 14px;
-  width: 100%;
-}
-
-.couple-name {
+.story-couple-names .name-amp {
   font-family: var(--font-script);
-  font-size: clamp(3.4rem, 14vw, 4.4rem);
+  font-size: 2.5rem;
   font-weight: 400;
-  line-height: 1.05;
-  background: var(--color-gold-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.9));
-  letter-spacing: 1px;
-  padding: 0 8px;
+  color: var(--color-gold);
+  line-height: 0.8;
 }
 
-.names-separator {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin: -2px 0 2px;
+.story-invitation-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: var(--color-text-subtle);
+  max-width: 320px;
+  margin: 0 auto;
 }
 
-.hairline-gold {
-  width: 56px;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-}
-
-.hairline-gold.centered {
-  margin: 8px auto;
-  width: 90px;
-}
-
-.om-divider {
-  font-family: var(--font-display);
-  font-size: 1.6rem;
-  color: var(--color-gold-light);
-  line-height: 1;
-  text-shadow: 0 0 12px rgba(217, 164, 65, 0.6);
-}
-
-/* Rajmahal Marquee Ribbon */
-.rajmahal-marquee-strip {
+/* 4. SCROLLING TEXT (Marquee Banner - Colorado Springs, CO) */
+.scrolling-marquee-strip {
   width: 100%;
+  max-width: 370px;
   overflow: hidden;
-  border-top: 1px solid rgba(217, 164, 65, 0.25);
-  border-bottom: 1px solid rgba(217, 164, 65, 0.25);
+  background: rgba(4, 20, 15, 0.85);
+  border-top: 1px solid rgba(229, 193, 88, 0.35);
+  border-bottom: 1px solid rgba(229, 193, 88, 0.35);
   padding: 6px 0;
-  margin: 12px 0 14px;
+  margin: 16px 0 14px;
 }
 
 .marquee-track {
   display: flex;
   width: max-content;
-  white-space: nowrap;
-  animation: marquee 24s linear infinite;
+  animation: marqueeRoll 24s linear infinite;
 }
 
 .marquee-track span {
-  font-family: var(--font-serif);
-  font-size: 0.65rem;
-  letter-spacing: 3.5px;
-  text-transform: uppercase;
-  color: #d9b36a;
-  padding: 0 16px;
+  font-family: var(--font-heading);
+  font-size: 0.68rem;
+  letter-spacing: 2px;
+  color: var(--color-gold-light);
+  white-space: nowrap;
+  padding-right: 20px;
 }
 
-@keyframes marquee {
-  to { transform: translateX(-50%); }
+@keyframes marqueeRoll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.royal-ornament-wrap {
-  margin-top: 4px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.ornament-divider-wrap {
+  margin-top: 8px;
+  opacity: 0.75;
 }
 
-.royal-divider-img {
-  width: 190px;
-  max-width: 75%;
+.divider-line-img {
+  width: 180px;
   height: auto;
-  opacity: 0.85;
-  filter: drop-shadow(0 2px 10px rgba(217, 164, 65, 0.35));
 }
 
-/* --- Rajmahal Card Styling (Shared by all interactive components) --- */
-.rajmahal-card {
-  background: var(--color-rajmahal-glass) !important;
-  backdrop-filter: blur(14px);
-  border: 1px solid var(--color-rajmahal-border) !important;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 16px rgba(217, 164, 65, 0.12) !important;
-}
+/* ==========================================================================
+   5. SCRATCH TO REVEAL WEDDING DATE (Box stays completely in place)
+   ========================================================================== */
 
-/* --- 3. Scratch to Reveal Date Card --- */
 .scratch-card-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   max-width: 360px;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .scratch-card-container {
   position: relative;
   width: 100%;
-  min-height: 152px;
+  min-height: 156px;
   border-radius: 18px;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: none !important;
+  user-select: none;
 }
 
 .scratch-canvas {
@@ -921,7 +634,7 @@ html, body {
   height: 100%;
   z-index: 10;
   cursor: grab;
-  touch-action: none;
+  touch-action: none !important;
   transition: opacity 0.5s ease;
 }
 
@@ -936,7 +649,7 @@ html, body {
   position: absolute;
   bottom: 8px;
   z-index: 12;
-  background: rgba(22, 4, 8, 0.92);
+  background: rgba(4, 20, 15, 0.92);
   backdrop-filter: blur(6px);
   border: 1px solid var(--color-gold);
   border-radius: 20px;
@@ -987,7 +700,7 @@ html, body {
 }
 
 .date-time-card {
-  background: radial-gradient(circle at center, rgba(46, 12, 20, 0.95) 0%, rgba(22, 4, 8, 0.98) 100%);
+  background: radial-gradient(circle at center, rgba(10, 38, 28, 0.95) 0%, rgba(4, 20, 15, 0.98) 100%);
   padding: 16px 20px;
   width: 100%;
   height: 100%;
@@ -996,24 +709,16 @@ html, body {
   justify-content: center;
   align-items: center;
   text-align: center;
-}
-
-.date-header-badge {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  letter-spacing: 3.5px;
-  color: var(--color-gold);
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-bottom: 3px;
+  pointer-events: none;
 }
 
 .date-days-label {
   font-family: var(--font-serif);
-  font-size: 0.76rem;
+  font-size: 0.82rem;
   letter-spacing: 3px;
   color: var(--color-gold-light);
   font-weight: 600;
+  text-transform: uppercase;
 }
 
 .date-main-display {
@@ -1041,9 +746,9 @@ html, body {
   text-shadow: 0 0 16px rgba(217, 164, 65, 0.65);
 }
 
-.date-ceremony-note {
+.date-venue-note {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   letter-spacing: 1.6px;
   color: #d9b36a;
   text-transform: uppercase;
@@ -1051,11 +756,14 @@ html, body {
   opacity: 0.95;
 }
 
-/* --- 4. Choose a Chapter (Gilded Template) & Custom Carousel Animations --- */
+/* ==========================================================================
+   6. CHAPTER SECTION: THREE CHAPTERS - ONE UNFORGETTABLE CELEBRATION
+   ========================================================================== */
+
 .chapters-editorial-section {
   width: 100%;
   max-width: 390px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1063,846 +771,549 @@ html, body {
 
 .chapter-header-wrap {
   text-align: center;
-  margin-bottom: 16px;
-  padding: 0 8px;
-}
-
-.section-kicker {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  letter-spacing: 3.5px;
-  color: var(--color-gold);
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .chapter-main-title {
-  font-family: var(--font-serif);
-  font-size: 1.9rem;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  letter-spacing: 3px;
   color: var(--color-gold-light);
-  line-height: 1.1;
-  margin-bottom: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-shadow: 0 0 14px rgba(229, 193, 88, 0.45);
 }
 
-.chapter-intro-desc {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: rgba(243, 231, 211, 0.75);
-  line-height: 1.45;
-  font-style: italic;
-}
-
-/* Tab Selector Buttons */
+/* Tabs Selector for 3 Events */
 .chapter-selector-tabs {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   width: 100%;
-  background: rgba(22, 4, 8, 0.88);
-  border: 1px solid var(--color-rajmahal-border);
+  background: rgba(4, 20, 15, 0.85);
+  border: 1px solid var(--color-emerald-border);
   border-radius: 12px;
   overflow: hidden;
   margin-bottom: 16px;
 }
 
 .chapter-tab-btn {
-  position: relative;
   background: transparent;
   border: none;
-  padding: 10px 4px 9px;
+  border-right: 1px solid rgba(229, 193, 88, 0.2);
+  padding: 10px 4px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 3px;
   transition: all 0.3s ease;
-  color: rgba(243, 235, 220, 0.45);
 }
 
-.chapter-tab-btn::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 100%;
-  bottom: 0;
-  height: 2.5px;
-  background: var(--color-gold);
-  transition: right 0.35s var(--ease-silk);
-}
-
-.chapter-tab-btn:hover {
-  background: rgba(217, 164, 65, 0.08);
-  color: var(--color-gold-light);
+.chapter-tab-btn:last-child {
+  border-right: none;
 }
 
 .chapter-tab-btn.active {
-  color: var(--color-gold-light);
-  background: rgba(217, 164, 65, 0.12);
+  background: rgba(229, 193, 88, 0.22);
+  box-shadow: inset 0 -2px 0 var(--color-gold);
 }
 
-.chapter-tab-btn.active::before {
-  right: 0;
-}
-
-.tab-num {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  color: var(--color-gold);
-  line-height: 1;
-  margin-bottom: 3px;
-}
-
-.tab-title {
+.chapter-tab-btn .tab-num {
   font-family: var(--font-sans);
-  font-size: 0.52rem;
-  letter-spacing: 0.8px;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: var(--color-gold);
   font-weight: 600;
+}
+
+.chapter-tab-btn .tab-title {
+  font-family: var(--font-heading);
+  font-size: 0.62rem;
+  letter-spacing: 1.2px;
+  color: var(--color-text-subtle);
+  font-weight: 600;
+  text-transform: uppercase;
   text-align: center;
+}
+
+.chapter-tab-btn.active .tab-title {
+  color: #FFFFFF;
+  font-weight: 700;
 }
 
 /* Chapter Carousel Stage */
 .chapter-carousel-stage {
   position: relative;
   width: 100%;
-  min-height: 520px;
-  border-radius: 22px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75), 0 0 25px rgba(217, 164, 65, 0.12);
-  border: 1px solid var(--color-rajmahal-border);
+  min-height: 410px;
 }
 
 .chapter-card {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100%;
+  min-height: 410px;
+  background: var(--color-emerald-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--color-emerald-border);
+  border-radius: 20px;
+  padding: 24px 20px 20px;
   opacity: 0;
-  transform: translateX(36px);
-  pointer-events: none;
-  transition: opacity 0.5s var(--ease-silk), transform 0.5s var(--ease-silk);
+  visibility: hidden;
+  transform: translateY(12px) scale(0.98);
+  transition: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 26px 20px 24px;
-  text-align: left;
-  overflow: hidden;
-  border-radius: 22px;
+  justify-content: center;
 }
 
 .chapter-card.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
   position: relative;
-  min-height: 520px;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+/* Bespoke subtle backgrounds for each card */
+.card-sangeet {
+  background: radial-gradient(circle at 50% 15%, rgba(20, 35, 45, 0.9) 0%, rgba(5, 18, 15, 0.92) 100%);
+}
+
+.card-ceremony {
+  background: radial-gradient(circle at 50% 15%, rgba(38, 18, 28, 0.9) 0%, rgba(6, 20, 15, 0.92) 100%);
+}
+
+.card-reception {
+  background: radial-gradient(circle at 50% 15%, rgba(42, 32, 12, 0.9) 0%, rgba(6, 20, 15, 0.92) 100%);
 }
 
 .chapter-card-inner {
   position: relative;
-  z-index: 10;
+  z-index: 3;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  height: 100%;
-  justify-content: space-between;
-}
-
-/* Header Badge Row */
-.chapter-header-badge-row {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  width: 100%;
+  text-align: center;
 }
 
-.chapter-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  letter-spacing: 2px;
+/* Event Card Titles & Clean Typography */
+.event-title {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
   font-weight: 700;
-  text-transform: uppercase;
-  backdrop-filter: blur(8px);
-}
-
-.capri-badge {
-  background: rgba(43, 111, 159, 0.28);
-  border: 1px solid rgba(121, 197, 242, 0.45);
-  color: #aee2ff;
-}
-
-.moroccan-badge {
-  background: rgba(184, 94, 38, 0.28);
-  border: 1px solid rgba(255, 170, 50, 0.45);
-  color: #ffd88a;
-}
-
-.wedding-badge {
-  background: rgba(184, 45, 68, 0.28);
-  border: 1px solid rgba(255, 142, 142, 0.45);
-  color: #ffb8b8;
-}
-
-.gilded-badge {
-  background: rgba(217, 164, 65, 0.25);
-  border: 1px solid rgba(247, 224, 150, 0.45);
-  color: #f7e096;
-}
-
-.badge-num {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--color-gold-light);
-}
-
-.badge-dot {
-  font-size: 0.55rem;
-  opacity: 0.75;
-}
-
-.chapter-ritual-pill {
-  font-family: var(--font-sans);
-  font-size: 0.58rem;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: rgba(243, 235, 220, 0.75);
-  padding: 3px 8px;
-  border-radius: 12px;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.chapter-ritual-pill.gold-script {
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  color: var(--color-gold-light);
   letter-spacing: 2px;
-  border-color: rgba(217, 164, 65, 0.35);
+  color: var(--color-gold-light);
+  margin-bottom: 8px;
+  text-shadow: 0 0 14px rgba(229, 193, 88, 0.5);
 }
 
-/* Ceremony Title & Subtitle */
-.chapter-title-group {
-  margin-top: 2px;
-  max-width: 82%;
-}
-
-.chapter-event-name {
+.event-hosts {
   font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 5.2vw, 2.1rem);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  line-height: 1.15;
+  font-size: 1.05rem;
+  font-style: italic;
   color: var(--color-text-bright);
-  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75);
+  margin-bottom: 10px;
+  line-height: 1.4;
 }
 
-.chapter-event-subtitle {
-  font-family: var(--font-display);
+.event-invitation-body {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-subtle);
+  max-width: 320px;
+  margin-bottom: 12px;
+}
+
+.event-couple-highlight {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  letter-spacing: 3px;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin-bottom: 14px;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.5);
+}
+
+.event-journey-subtitle {
+  font-family: var(--font-serif);
   font-size: 0.92rem;
   font-style: italic;
-  letter-spacing: 0.8px;
   color: var(--color-gold-light);
-  margin-top: 4px;
-  opacity: 0.95;
-  line-height: 1.35;
+  margin-top: -6px;
+  margin-bottom: 14px;
 }
 
-/* Date & Time Bar */
-.chapter-datetime-bar {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 12px;
-  background: rgba(18, 5, 9, 0.55);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(217, 164, 65, 0.22);
-  border-radius: 12px;
-  padding: 8px 12px;
-  width: fit-content;
-  max-width: 100%;
-}
-
-.dt-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 1px;
-  font-weight: 600;
-  color: var(--color-text-bright);
-}
-
-.dt-icon {
-  font-size: 0.82rem;
-}
-
-.dt-sep {
-  color: var(--color-gold);
-  font-size: 0.8rem;
-  opacity: 0.6;
-}
-
-/* Story Prose / Note */
-.chapter-note {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  line-height: 1.65;
-  color: rgba(247, 241, 230, 0.94);
-  font-weight: 400;
-  letter-spacing: 0.3px;
-  margin: 2px 0 6px;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-}
-
-/* Venue & Attire Details Grid */
-.chapter-details-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  width: 100%;
-  padding-top: 10px;
-  border-top: 1px solid rgba(217, 164, 65, 0.22);
-}
-
-.detail-pill {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: rgba(18, 5, 9, 0.6);
-  border: 1px solid rgba(217, 164, 65, 0.2);
-  border-radius: 10px;
-  padding: 7px 12px;
-  transition: border-color 0.3s ease, background 0.3s ease;
-}
-
-.detail-pill:hover {
-  border-color: rgba(217, 164, 65, 0.45);
-  background: rgba(217, 164, 65, 0.08);
-}
-
-.detail-icon {
-  width: 16px;
-  height: 16px;
-  color: var(--color-gold);
-  flex-shrink: 0;
-}
-
-.detail-emoji {
-  font-size: 1.05rem;
-  flex-shrink: 0;
-  line-height: 1;
-}
-
-.detail-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1px;
-  text-align: left;
-}
-
-.detail-label {
-  font-family: var(--font-sans);
-  font-size: 0.52rem;
-  letter-spacing: 2px;
+/* Wedding Ceremony Specific Heritage Typography */
+.event-name-bride, .event-name-groom {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  letter-spacing: 3px;
+  color: #FFFFFF;
   font-weight: 700;
+  margin: 4px 0;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.5);
+}
+
+.event-family-heritage {
+  margin: 6px 0;
+}
+
+.heritage-label {
+  font-family: var(--font-serif);
+  font-size: 0.85rem;
+  font-style: italic;
   color: var(--color-gold);
-  opacity: 0.9;
+  margin-bottom: 2px;
 }
 
-.detail-val {
+.heritage-name {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
+  color: var(--color-text-subtle);
+  line-height: 1.4;
+}
+
+.event-connector-to {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--color-gold);
+  margin: 4px 0;
+}
+
+.groom-parents-line {
+  font-family: var(--font-serif);
+  font-size: 0.92rem;
+  font-style: italic;
+  color: var(--color-text-subtle);
+  margin-bottom: 12px;
+}
+
+/* Bottom Event Meta Box (Date, Time, Venue) */
+.event-details-bottom {
+  width: 100%;
+  background: rgba(4, 20, 15, 0.75);
+  border: 1px solid rgba(229, 193, 88, 0.3);
+  border-radius: 12px;
+  padding: 10px 14px;
+  margin-top: 6px;
+}
+
+.event-datetime-line {
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  color: var(--color-gold-light);
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.event-rituals-line {
   font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.6px;
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--color-gold);
+  margin-bottom: 3px;
+}
+
+.event-venue-line {
+  font-family: var(--font-serif);
+  font-size: 0.88rem;
   color: var(--color-text-bright);
-  font-weight: 500;
 }
 
 /* ==========================================================================
-   Chapter 1: Capri Style (Manglik Prasango)
+   EVENT CARD ANIMATIONS (Bespoke & Elegant)
    ========================================================================== */
-#chapter-0 {
-  background: radial-gradient(circle at 85% 12%, rgba(68, 142, 196, 0.4) 0%, transparent 60%),
-              radial-gradient(circle at 15% 85%, rgba(255, 213, 61, 0.12) 0%, transparent 50%),
-              linear-gradient(165deg, #0b1f33 0%, #061422 55%, #020910 100%);
-}
 
-.capri-decorations {
+.event-animation-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  z-index: 1;
   overflow: hidden;
 }
 
-.capri-tile-border-top, .capri-tile-border-bottom {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 12px;
-  z-index: 5;
-  opacity: 0.85;
-}
-.capri-tile-border-top { top: 0; }
-.capri-tile-border-bottom { bottom: 0; }
-
-.maiolica-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-.capri-lemon-branch {
-  position: absolute;
-  top: -4px;
-  right: -6px;
-  width: 135px;
-  height: 120px;
-  z-index: 4;
-  transform-origin: top right;
-  animation: lemonSway 5.5s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-@keyframes lemonSway {
-  0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(-3.5deg) translateY(3px) scale(1.02); }
-  100% { transform: rotate(2deg) translateY(-2px) scale(0.99); }
-}
-
-.lemon-svg {
-  width: 100%;
-  height: 100%;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
-}
-
-.capri-drifting-petals {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.blossom-flake {
-  position: absolute;
-  width: 9px;
-  height: 9px;
-  background: radial-gradient(circle, #ffffff 40%, #fff4be 100%);
-  border-radius: 50% 0 50% 50%;
-  opacity: 0;
-  animation: blossomFall 7s linear infinite;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
-}
-
-.blossom-flake.f1 { left: 18%; animation-delay: 0.2s; }
-.blossom-flake.f2 { left: 42%; animation-delay: 2.2s; width: 7px; height: 7px; }
-.blossom-flake.f3 { left: 68%; animation-delay: 4.4s; }
-.blossom-flake.f4 { left: 88%; animation-delay: 1.4s; width: 6px; height: 6px; }
-
-@keyframes blossomFall {
-  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-  15% { opacity: 0.85; }
-  85% { opacity: 0.7; }
-  100% { transform: translateY(520px) rotate(360deg); opacity: 0; }
-}
-
-/* ==========================================================================
-   Chapter 2: Sangeet (Moroccan Lanterns)
-   ========================================================================== */
-#chapter-1 {
-  background: radial-gradient(circle at 50% 20%, rgba(204, 107, 43, 0.28) 0%, transparent 60%),
-              radial-gradient(circle at 85% 85%, rgba(140, 24, 48, 0.2) 0%, transparent 55%),
-              linear-gradient(165deg, #2b0b14 0%, #17050a 60%, #0c0205 100%);
-}
-
-.moroccan-decorations {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.moroccan-arch-overlay {
+/* 8. Sangeet: Colorful Hanging Moroccan Lanterns Swaying Gently */
+.hanging-lanterns-flank {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 260px;
-  height: 140px;
-  pointer-events: none;
-  opacity: 0.75;
-}
-
-.moroccan-arch-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.moroccan-flank-lanterns {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 36px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 32px;
-  z-index: 4;
+  gap: 8px;
 }
-.moroccan-flank-lanterns.flank-left { left: 6px; }
-.moroccan-flank-lanterns.flank-right { right: 6px; }
 
-.lantern-drop {
+.flank-left { left: 10px; }
+.flank-right { right: 10px; }
+
+.lantern-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: lanternCascade 4.5s ease-in-out infinite alternate;
+  animation: lanternSwayGentle 3.5s ease-in-out infinite alternate;
+  transform-origin: top center;
 }
 
-.lantern-drop-1 { animation-delay: 0s; }
-.lantern-drop-2 { animation-delay: 0.9s; }
-.lantern-drop-3 { animation-delay: 1.8s; }
-.lantern-drop-4 { animation-delay: 0.4s; }
-.lantern-drop-5 { animation-delay: 1.3s; }
-.lantern-drop-6 { animation-delay: 2.2s; }
+.flank-right .lantern-item {
+  animation-duration: 4.2s;
+  animation-delay: -1.2s;
+}
+
+@keyframes lanternSwayGentle {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
 
 .lantern-chain {
-  width: 1.5px;
-  height: 32px;
-  background: repeating-linear-gradient(180deg, #d9a441 0, #d9a441 3px, transparent 3px, transparent 6px);
-}
-.lantern-chain.short { height: 20px; }
-
-.moroccan-lantern-body {
-  position: relative;
-  width: 24px;
+  width: 1px;
   height: 38px;
-  background: linear-gradient(180deg, #5c3c12 0%, #201305 50%, #7d541a 100%);
-  border: 1.5px solid #e5b34a;
-  border-radius: 40% 40% 45% 45% / 25% 25% 45% 45%;
+  background: linear-gradient(180deg, rgba(229, 193, 88, 0.8), rgba(229, 193, 88, 0.3));
+}
+
+.chain-short {
+  height: 22px;
+}
+
+.moroccan-lantern-svg-wrap {
+  position: relative;
+}
+
+.moroccan-lantern-vector {
+  width: 32px;
+  height: 48px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.7));
+}
+
+.lantern-warm-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 230, 150, 0.7) 0%, transparent 70%);
+  animation: flareBreathe 2.4s ease-in-out infinite alternate;
+}
+
+.cyan-glow {
+  background: radial-gradient(circle, rgba(129, 212, 250, 0.7) 0%, transparent 70%);
+}
+
+.magenta-glow {
+  background: radial-gradient(circle, rgba(244, 143, 177, 0.7) 0%, transparent 70%);
+}
+
+@keyframes flareBreathe {
+  0% { transform: translate(-50%, -50%) scale(0.85); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+/* Gentle Rising Golden Embers */
+.gentle-embers {
+  position: absolute;
+  inset: 0;
+}
+
+.ember-dot {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #FFE57F;
+  box-shadow: 0 0 6px #FFD54F;
+  animation: emberRise 4s linear infinite;
+}
+
+.em1 { left: 25%; animation-delay: 0s; }
+.em2 { left: 60%; animation-delay: 1.5s; }
+.em3 { left: 80%; animation-delay: 2.8s; }
+
+@keyframes emberRise {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 0.9; }
+  80% { opacity: 0.7; }
+  100% { transform: translateY(-350px); opacity: 0; }
+}
+
+/* 9. Wedding Ceremony: Pink & White Flowers Wrapping Down Sides */
+.wrapping-flowers-vines {
+  position: absolute;
+  top: -20px;
+  width: 80px;
+  height: 120%;
+  pointer-events: none;
+}
+
+.vine-flank-left {
+  left: -20px;
+  animation: flowerFloatDownLeft 7s ease-in-out infinite alternate;
+}
+
+.vine-flank-right {
+  right: -20px;
+  transform: scaleX(-1);
+  animation: flowerFloatDownRight 7s ease-in-out infinite alternate;
+}
+
+.flowing-floral-img {
+  width: 100%;
+  height: auto;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+  margin-bottom: -40px;
+}
+
+@keyframes flowerFloatDownLeft {
+  0% { transform: translateY(0) rotate(-2deg); }
+  100% { transform: translateY(22px) rotate(2deg); }
+}
+
+@keyframes flowerFloatDownRight {
+  0% { transform: scaleX(-1) translateY(0) rotate(-2deg); }
+  100% { transform: scaleX(-1) translateY(22px) rotate(2deg); }
+}
+
+.soft-drifting-petals {
+  position: absolute;
+  inset: 0;
+}
+
+.soft-petal {
+  position: absolute;
+  top: -10px;
+  width: 8px;
+  height: 12px;
+  background: radial-gradient(circle, #fce4ec 0%, #f48fb1 80%);
+  border-radius: 50% 50% 40% 60%;
+  opacity: 0.75;
+  animation: softPetalDrift 6s linear infinite;
+}
+
+.sp1 { left: 15%; animation-duration: 5.5s; animation-delay: 0s; }
+.sp2 { left: 50%; animation-duration: 7s; animation-delay: 2.2s; }
+.sp3 { left: 82%; animation-duration: 6.2s; animation-delay: 1.1s; }
+
+@keyframes softPetalDrift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: 0.85; }
+  85% { opacity: 0.8; }
+  100% { transform: translateY(420px) rotate(320deg); opacity: 0; }
+}
+
+/* 10. Reception: Hanging Crystal Chandeliers from Reference Photo */
+.chandeliers-hanging-group {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.chandelier-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: chSway 4s ease-in-out infinite alternate;
+  transform-origin: top center;
+}
+
+.ch-center {
+  animation-duration: 5s;
+  animation-delay: -1.5s;
+}
+
+.ch-right {
+  animation-duration: 4.5s;
+  animation-delay: -0.8s;
+}
+
+@keyframes chSway {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+.ch-chain {
+  width: 1px;
+  height: 24px;
+  background: linear-gradient(180deg, rgba(229, 193, 88, 0.9), rgba(229, 193, 88, 0.3));
+}
+
+.grand-chain {
+  height: 12px;
+}
+
+.chandelier-art-img {
+  width: 58px;
+  height: auto;
+  filter: drop-shadow(0 4px 12px rgba(229, 193, 88, 0.5));
+}
+
+.grand-art {
+  width: 78px;
+}
+
+.ch-glow-pulse {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 238, 170, 0.5) 0%, transparent 70%);
+  animation: glowPulse 2.8s ease-in-out infinite alternate;
+}
+
+.grand-glow {
+  width: 80px;
+  height: 80px;
+}
+
+@keyframes glowPulse {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.95; }
+}
+
+.chandelier-sparkles {
+  position: absolute;
+  inset: 0;
+}
+
+.sparkle-crystal {
+  position: absolute;
+  color: #FFF9C4;
+  font-size: 0.75rem;
+  animation: crystalTwinkle 2s ease-in-out infinite alternate;
+}
+
+.sc1 { top: 75px; left: 22%; animation-delay: 0.2s; }
+.sc2 { top: 90px; left: 52%; animation-delay: 0.8s; }
+.sc3 { top: 75px; left: 78%; animation-delay: 1.4s; }
+
+@keyframes crystalTwinkle {
+  0% { opacity: 0.2; transform: scale(0.7); }
+  100% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Carousel Navigation Controls */
+.chapter-nav-controls {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 16px rgba(255, 170, 40, 0.8), inset 0 0 8px rgba(255, 180, 50, 0.4);
-}
-.moroccan-lantern-body.medium { width: 20px; height: 32px; }
-.moroccan-lantern-body.small { width: 16px; height: 26px; }
-
-.lantern-lattice {
-  position: absolute;
-  inset: 3px;
-  border: 1px dashed rgba(255, 215, 100, 0.4);
-  border-radius: 4px;
-}
-
-.lantern-flame {
-  position: relative;
-  width: 7px;
-  height: 12px;
-  background: radial-gradient(circle, #ffffff 15%, #ffd24d 55%, #ff8800 100%);
-  border-radius: 50% 50% 40% 40%;
-  box-shadow: 0 0 12px #ffaa00;
-  animation: flameFlicker 1.4s ease-in-out infinite alternate;
-}
-
-.lantern-glow {
-  position: absolute;
-  inset: -16px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 180, 50, 0.38) 0%, transparent 70%);
-}
-
-@keyframes lanternCascade {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(8px) rotate(-3.5deg); }
-  100% { transform: translateY(-4px) rotate(3deg); }
-}
-
-.moroccan-embers .ember {
-  position: absolute;
-  width: 3.5px;
-  height: 3.5px;
-  background: #ffc44d;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #ff8c00;
-  animation: emberFloat 5.5s ease-in infinite;
-}
-.ember.e1 { left: 24%; bottom: 30px; animation-delay: 0.2s; }
-.ember.e2 { left: 74%; bottom: 50px; animation-delay: 1.8s; }
-.ember.e3 { left: 48%; bottom: 15px; animation-delay: 3.2s; }
-.ember.e4 { left: 35%; bottom: 65px; animation-delay: 4.1s; }
-
-@keyframes emberFloat {
-  0% { transform: translateY(0); opacity: 0; }
-  30% { opacity: 0.95; }
-  100% { transform: translateY(-160px) translateX(20px); opacity: 0; }
-}
-
-/* ==========================================================================
-   Chapter 3: Wedding (Royal Vivah - Floral Border Frame)
-   ========================================================================== */
-#chapter-2 {
-  background: radial-gradient(circle at 50% 25%, rgba(184, 45, 68, 0.32) 0%, transparent 65%),
-              radial-gradient(circle at 50% 85%, rgba(217, 164, 65, 0.18) 0%, transparent 60%),
-              linear-gradient(165deg, #2b0811 0%, #160408 60%, #0a0104 100%);
-}
-
-.wedding-flowers-decorations {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.royal-floral-frame {
-  position: absolute;
-  inset: 4px;
-  border-radius: 20px;
-  pointer-events: none;
-  animation: floralPulse 4s ease-in-out infinite alternate;
-}
-
-.floral-frame-border {
-  position: absolute;
-  z-index: 4;
-}
-
-.floral-frame-border.top, .floral-frame-border.bottom {
-  left: 28px;
-  right: 28px;
-  height: 14px;
-  background-image:
-    radial-gradient(circle at 14px 7px, #ffd557 3.5px, transparent 4.5px),
-    radial-gradient(circle at 7px 7px, #e84d6b 3px, transparent 4px),
-    radial-gradient(circle at 21px 7px, #ffffff 2.5px, transparent 3.5px);
-  background-size: 28px 14px;
-  background-repeat: repeat-x;
-}
-.floral-frame-border.top { top: 4px; }
-.floral-frame-border.bottom { bottom: 4px; }
-
-.floral-frame-border.left, .floral-frame-border.right {
-  top: 28px;
-  bottom: 28px;
-  width: 14px;
-  background-image:
-    radial-gradient(circle at 7px 14px, #ffd557 3.5px, transparent 4.5px),
-    radial-gradient(circle at 7px 7px, #e84d6b 3px, transparent 4px),
-    radial-gradient(circle at 7px 21px, #ffffff 2.5px, transparent 3.5px);
-  background-size: 14px 28px;
-  background-repeat: repeat-y;
-}
-.floral-frame-border.left { left: 4px; }
-.floral-frame-border.right { right: 4px; }
-
-.floral-corner {
-  position: absolute;
-  width: 34px;
-  height: 34px;
-  z-index: 5;
-  background: radial-gradient(circle at center, #ffe074 25%, #e04163 65%, transparent 72%);
-  border-radius: 50%;
-  filter: drop-shadow(0 0 8px rgba(232, 77, 107, 0.7));
-}
-.floral-corner.top-left { top: 4px; left: 4px; }
-.floral-corner.top-right { top: 4px; right: 4px; }
-.floral-corner.bottom-left { bottom: 4px; left: 4px; }
-.floral-corner.bottom-right { bottom: 4px; right: 4px; }
-
-@keyframes floralPulse {
-  0% { filter: brightness(0.95) drop-shadow(0 0 5px rgba(245, 178, 78, 0.45)); }
-  100% { filter: brightness(1.22) drop-shadow(0 0 12px rgba(232, 77, 107, 0.8)); }
-}
-
-.floating-rose-petals .rose-petal {
-  position: absolute;
-  width: 12px;
-  height: 15px;
-  background: radial-gradient(circle at 40% 40%, #ff8c9f 0%, #db3356 70%, #871028 100%);
-  border-radius: 50% 50% 20% 60%;
-  opacity: 0;
-  animation: rosePetalDrift 7s linear infinite;
-  box-shadow: 0 0 6px rgba(219, 51, 86, 0.5);
-}
-.rose-petal.p1 { left: 16%; animation-delay: 0.3s; }
-.rose-petal.p2 { left: 38%; animation-delay: 2.2s; transform: scale(0.85); }
-.rose-petal.p3 { left: 66%; animation-delay: 4.4s; transform: scale(1.1); }
-.rose-petal.p4 { left: 84%; animation-delay: 1.5s; }
-.rose-petal.p5 { left: 52%; animation-delay: 5.2s; transform: scale(0.75); }
-
-@keyframes rosePetalDrift {
-  0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-  20% { opacity: 0.95; }
-  85% { opacity: 0.75; }
-  100% { transform: translateY(520px) rotate(280deg); opacity: 0; }
-}
-
-/* ==========================================================================
-   Chapter 4: Reception (Chandeliers from Gilded Hall)
-   ========================================================================== */
-#chapter-3 {
-  background: radial-gradient(circle at 50% 15%, rgba(217, 164, 65, 0.32) 0%, transparent 65%),
-              radial-gradient(circle at 50% 85%, rgba(140, 90, 20, 0.22) 0%, transparent 60%),
-              linear-gradient(165deg, #2a1608 0%, #170c04 60%, #0a0401 100%);
-}
-
-.gilded-hall-decorations {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.gilded-arch-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 120px;
-  pointer-events: none;
-  opacity: 0.8;
-}
-
-.gilded-arch-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.chandeliers-row {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 140px;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 0 14px;
-  z-index: 5;
-}
-
-.chandelier-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  animation: chandelierSway 4.8s ease-in-out infinite alternate;
-}
-.c-left { animation-delay: 0.6s; }
-.c-center { animation-delay: 0s; transform: scale(1.15); }
-.c-right { animation-delay: 1.2s; }
-
-@keyframes chandelierSway {
-  0% { transform: rotate(-2deg); }
-  100% { transform: rotate(2deg); }
-}
-
-.chandelier-chain {
-  width: 1.5px;
-  height: 26px;
-  background: linear-gradient(180deg, #f7e096, #b88e28);
-}
-.chandelier-chain.grand { height: 34px; }
-
-.chandelier-crown {
-  width: 32px;
-  height: 10px;
-  background: linear-gradient(90deg, #b88e28, #fff4d0, #b88e28);
-  border-radius: 4px;
-  box-shadow: 0 0 12px rgba(229, 193, 88, 0.7);
-}
-.chandelier-crown.grand { width: 46px; height: 12px; }
-
-.chandelier-arms {
-  display: flex;
-  gap: 6px;
-  margin-top: 3px;
-}
-.chandelier-arms.grand { gap: 5px; }
-
-.crystal-bulb {
-  width: 5px;
-  height: 9px;
-  background: #ffffff;
-  border-radius: 50% 50% 30% 30%;
-  box-shadow: 0 0 12px #fff4a3, 0 0 20px rgba(229, 193, 88, 0.85);
-  animation: crystalSparkle 2.2s ease-in-out infinite alternate;
-}
-
-.crystal-pendants {
-  width: 22px;
-  height: 18px;
-  border-left: 2px solid rgba(255, 244, 208, 0.7);
-  border-right: 2px solid rgba(255, 244, 208, 0.7);
-  border-bottom: 2px solid rgba(255, 244, 208, 0.7);
-  border-radius: 0 0 10px 10px;
-  margin-top: 2px;
-}
-.crystal-pendants.grand { width: 30px; height: 24px; }
-
-.chandelier-flare-glow {
-  position: absolute;
-  top: 26px;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 240, 180, 0.45) 0%, transparent 65%);
-  animation: flarePulse 2.8s ease-in-out infinite alternate;
-}
-.chandelier-flare-glow.grand { width: 94px; height: 94px; }
-
-@keyframes crystalSparkle {
-  0% { opacity: 0.7; transform: scale(0.9); }
-  100% { opacity: 1; transform: scale(1.18); filter: drop-shadow(0 0 8px #ffffff); }
-}
-
-@keyframes flarePulse {
-  0% { transform: scale(0.85); opacity: 0.5; }
-  100% { transform: scale(1.25); opacity: 0.9; }
-}
-
-.golden-stardust .stardust {
-  position: absolute;
-  color: var(--color-gold-light);
-  font-size: 11px;
-  opacity: 0;
-  animation: stardustTwinkle 3.2s ease-in-out infinite;
-}
-.stardust.s1 { top: 75px; left: 28%; animation-delay: 0.2s; }
-.stardust.s2 { top: 90px; right: 26%; animation-delay: 1.1s; font-size: 13px; }
-.stardust.s3 { top: 125px; left: 50%; animation-delay: 2.1s; }
-.stardust.s4 { top: 65px; right: 40%; animation-delay: 1.7s; }
-.stardust.s5 { top: 140px; right: 18%; animation-delay: 2.6s; font-size: 9px; }
-
-@keyframes stardustTwinkle {
-  0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.35); text-shadow: 0 0 8px #ffd557; }
-}
-
-@keyframes stardustTwinkle {
-  0%, 100% { opacity: 0; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.3); }
-}
-
-/* Chapter Carousel Controls */
-.chapter-nav-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
+  gap: 16px;
   margin-top: 14px;
-  padding: 0 4px;
 }
 
 .nav-arrow-btn {
-  background: rgba(22, 4, 8, 0.85);
-  border: 1px solid var(--color-rajmahal-border);
+  background: rgba(4, 20, 15, 0.8);
+  border: 1px solid var(--color-emerald-border);
   color: var(--color-gold);
   width: 36px;
   height: 36px;
@@ -1915,316 +1326,291 @@ html, body {
 }
 
 .nav-arrow-btn:hover {
-  background: rgba(217, 164, 65, 0.2);
-  color: var(--color-gold-light);
-  transform: scale(1.08);
+  background: rgba(229, 193, 88, 0.25);
+  border-color: var(--color-gold);
 }
 
-.chapter-dots { display: flex; gap: 8px; }
+.chapter-dots {
+  display: flex;
+  gap: 8px;
+}
 
 .chapter-dots .dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(217, 164, 65, 0.25);
+  background: rgba(229, 193, 88, 0.35);
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .chapter-dots .dot.active {
-  background: var(--color-gold);
   width: 22px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(217, 164, 65, 0.6);
+  border-radius: 6px;
+  background: var(--color-gold);
 }
 
-/* --- 5. Countdown to Event Date --- */
+/* ==========================================================================
+   11. TEXT BELOW EVENT CARDS (Patel Family Blessing)
+   ========================================================================= */
+
+.patel-family-blessing {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 10px 16px;
+  width: 100%;
+  max-width: 380px;
+}
+
+.patel-blessing-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-style: italic;
+  letter-spacing: 1.2px;
+  color: var(--color-gold-light);
+  text-shadow: 0 0 10px rgba(229, 193, 88, 0.3);
+}
+
+/* ==========================================================================
+   12. COUNTDOWN TO MAY 7TH, 2027
+   ========================================================================== */
+
 .countdown-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 370px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .countdown-header-tag {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-family: var(--font-heading);
+  font-size: 0.72rem;
   letter-spacing: 3px;
   color: var(--color-gold);
-  margin-bottom: 10px;
-  font-weight: 600;
+  font-weight: 700;
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
 .countdown-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
+  gap: 10px;
   width: 100%;
 }
 
 .countdown-pill {
-  border-radius: 14px;
-  padding: 10px 4px;
+  padding: 12px 6px;
+  text-align: center;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  transition: transform 0.2s ease;
-}
-
-.countdown-pill:hover {
-  transform: translateY(-2px);
-  border-color: var(--color-gold) !important;
 }
 
 .countdown-num {
   font-family: var(--font-heading);
-  font-size: 1.35rem;
+  font-size: 1.45rem;
+  color: #FFFFFF;
   font-weight: 700;
-  color: var(--color-gold-light);
-  line-height: 1.1;
-  text-shadow: 0 0 10px rgba(217, 164, 65, 0.4);
+  line-height: 1;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.5);
 }
 
 .countdown-unit {
   font-family: var(--font-sans);
   font-size: 0.58rem;
   letter-spacing: 1.5px;
-  color: #d9b36a;
-  margin-top: 4px;
+  color: var(--color-gold);
+  margin-top: 5px;
+  font-weight: 600;
 }
 
-/* --- 6. Venue Location Block --- */
+/* ==========================================================================
+   13. WEDDING VENUE: Hotel Polaris in Colorado Springs, CO
+   ========================================================================== */
+
 .venue-block-card {
   width: 100%;
-  max-width: 370px;
-  border-radius: 18px;
-  padding: 20px 18px;
-  margin-bottom: 28px;
+  max-width: 380px;
+  padding: 22px 18px;
   text-align: center;
+  margin-bottom: 24px;
 }
 
 .venue-card-badge {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
   letter-spacing: 3px;
   color: var(--color-gold);
-  font-weight: 600;
+  font-weight: 700;
+  text-transform: uppercase;
   margin-bottom: 6px;
 }
 
 .venue-name {
-  font-family: var(--font-serif);
-  font-size: 1.25rem;
-  color: var(--color-gold-light);
-  font-weight: 600;
-  line-height: 1.25;
-  margin-bottom: 6px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: #FFFFFF;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 4px;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
 }
 
 .venue-location {
-  font-family: var(--font-display);
+  font-family: var(--font-serif);
   font-size: 0.95rem;
-  color: var(--color-text-bright);
-  line-height: 1.4;
-  margin-bottom: 6px;
-}
-
-.venue-subtext {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  letter-spacing: 1px;
-  color: #d9b36a;
-  margin-bottom: 16px;
+  color: var(--color-text-subtle);
+  margin-bottom: 14px;
 }
 
 .venue-map-wrapper {
-  overflow: hidden;
-  border-radius: 12px;
-  border: 1px solid var(--color-rajmahal-border);
-  height: 160px;
   width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(229, 193, 88, 0.3);
   margin-bottom: 16px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
 }
 
 .venue-iframe-map {
   width: 100%;
   height: 100%;
-  border: none;
-  filter: contrast(1.05) saturate(0.85);
+  border: 0;
 }
 
-.venue-actions {
-  display: flex;
+.secondary-glass-btn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 24px;
+  background: rgba(4, 20, 15, 0.85);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
 }
 
-/* --- 7. RSVP Card & Wedding Website Hyperlink --- */
+.secondary-glass-btn:hover {
+  background: rgba(229, 193, 88, 0.25);
+  color: #FFFFFF;
+  border-color: var(--color-gold-light);
+}
+
+/* ==========================================================================
+   14. KINDLY RSVP
+   ========================================================================== */
+
 .rsvp-section-card {
   width: 100%;
-  max-width: 370px;
-  border-radius: 20px;
+  max-width: 380px;
   padding: 24px 20px;
-  margin-bottom: 28px;
+  text-align: center;
+  margin-bottom: 24px;
 }
 
 .rsvp-card-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
 }
 
 .sparkle-rsvp {
-  font-size: 1.2rem;
   color: var(--color-gold);
-  margin-bottom: 4px;
-  animation: spinSparkle 6s linear infinite;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
 }
 
 .rsvp-title {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--color-gold-light);
+  font-weight: 700;
   letter-spacing: 2px;
+  color: var(--color-gold-light);
   margin-bottom: 8px;
+  text-shadow: 0 0 12px rgba(229, 193, 88, 0.4);
 }
 
 .rsvp-description {
-  font-family: var(--font-display);
-  font-size: 0.95rem;
-  line-height: 1.45;
-  color: rgba(243, 231, 211, 0.88);
+  font-family: var(--font-serif);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-text-subtle);
+  max-width: 320px;
   margin-bottom: 18px;
-  max-width: 290px;
 }
 
 .primary-gold-btn {
-  background: var(--color-gold-btn-gradient);
-  border: none;
-  color: #160408;
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  padding: 13px 22px;
-  border-radius: 30px;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 8px 24px rgba(217, 164, 65, 0.45);
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  padding: 12px 24px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #FFF4D0 0%, #E5C158 50%, #A67C1E 100%);
+  color: #120902;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
-  width: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(229, 193, 88, 0.4);
+  border: none;
 }
 
 .primary-gold-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(217, 164, 65, 0.65);
-  filter: brightness(1.08);
+  box-shadow: 0 8px 26px rgba(229, 193, 88, 0.6);
 }
 
 .calendar-btn-wrap {
-  margin-top: 10px;
-  width: 100%;
+  margin-top: 14px;
 }
 
-.secondary-glass-btn {
-  background: rgba(22, 4, 8, 0.8);
-  border: 1px solid var(--color-rajmahal-border);
-  color: var(--color-text-bright);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 11px 18px;
-  border-radius: 30px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  width: 100%;
+.add-cal-btn {
+  font-size: 0.7rem;
+  padding: 8px 16px;
 }
 
-.secondary-glass-btn:hover {
-  background: rgba(217, 164, 65, 0.18);
-  border-color: var(--color-gold);
-  color: var(--color-gold-light);
-  transform: translateY(-2px);
-}
+/* ==========================================================================
+   FOOTER SECTION
+   ========================================================================== */
 
-/* --- Grand Rajmahal Palace Footer with Hanging Garland --- */
-.rajmahal-footer-section {
-  position: relative;
-  width: 100%;
-  padding-top: 45px;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rajmahal-garland-overlay {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%;
-  max-width: none;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.95;
-}
-
-.footer-content-wrap {
-  position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.floral-footer-section {
   text-align: center;
-  padding: 20px 10px 10px;
-}
-
-.footer-mini-mandala {
-  width: 48px;
-  height: auto;
-  opacity: 0.85;
-  margin-bottom: 8px;
+  padding: 16px 0 24px;
+  width: 100%;
 }
 
 .footer-blessing-script {
   font-family: var(--font-script);
-  font-size: 2.1rem;
-  color: var(--color-gold-light);
+  font-size: 1.8rem;
+  color: var(--color-gold);
   line-height: 1.2;
-  margin-bottom: 4px;
 }
 
 .footer-families-note {
-  font-family: var(--font-serif);
-  font-size: 0.65rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
   letter-spacing: 3px;
-  color: #d9b36a;
+  color: var(--color-text-subtle);
   text-transform: uppercase;
-}
-
-.footer-hashtag {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  letter-spacing: 2.5px;
-  color: #f3e7d3;
-  opacity: 0.6;
-  margin-bottom: 12px;
-}
-
-.replay-action-btn {
-  margin-top: 6px;
+  margin: 4px 0 16px;
 }
 
 .text-link-btn {
@@ -2233,7 +1619,7 @@ html, body {
   color: var(--color-gold);
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.2px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -2245,15 +1631,21 @@ html, body {
 .text-link-btn:hover {
   opacity: 1;
   color: var(--color-gold-light);
+  text-decoration: underline;
 }
 
-/* --- Responsive Media Queries --- */
-@media (max-width: 600px) {
-  .invitation-wrapper { padding: 0; }
-  .invitation-card-container { max-width: 100%; max-height: 100%; border-radius: 0; border: none; }
-  .top-controls { padding: 0 16px; top: 12px; }
-  .content-scrollable { padding: 30px 14px 40px; }
-  .rajmahal-diya.diya-left { left: -4px; }
-  .rajmahal-diya.diya-right { right: -4px; }
-  .diya-img { width: 50px; }
+/* Animation utilities */
+.animate-element {
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
